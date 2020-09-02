@@ -13,21 +13,21 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class SmokehouseSkeleton
     {
-        /// <summary>
+        /// <value>
         /// Whether a sausage is desired (default true).
-        /// </summary>
+        /// </value>
         private bool sausageLink = true;
-        /// <summary>
+        /// <value>
         /// Whether eggs are desired (default true).
-        /// </summary>
+        /// </value>
         private bool egg = true;
-        /// <summary>
+        /// <value>
         /// Whether hash browns are desired (default true).
-        /// </summary>
+        /// </value>
         private bool hashBrowns = true;
-        /// <summary>
+        /// <value>
         /// Whether pancakes are desired (default true).
-        /// </summary>
+        /// </value>
         private bool pancake = true;
         
         /// <summary>

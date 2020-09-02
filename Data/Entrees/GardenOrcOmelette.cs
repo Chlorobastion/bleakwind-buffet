@@ -13,21 +13,21 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class GardenOrcOmelette
     {
-        /// <summary>
+        /// <value>
         /// Whether broccoli is desired (default true).
-        /// </summary>
+        /// </value>
         private bool broccoli = true;
-        /// <summary>
+        /// <value>
         /// Whether mushrooms are desired (default true).
-        /// </summary>
+        /// </value>
         private bool mushrooms = true;
-        /// <summary>
+        /// <value>
         /// Whether tomato is desired (default true).
-        /// </summary>
+        /// </value>
         private bool tomato = true;
-        /// <summary>
+        /// <value>
         /// Whether cheddar is desired (default true).
-        /// </summary>
+        /// </value>
         private bool cheddar = true;
 
         /// <summary>

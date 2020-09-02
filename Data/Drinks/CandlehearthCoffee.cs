@@ -15,21 +15,21 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class CandlehearthCoffee
     {
-        /// <summary>
+        /// <value>
         /// Whether ice is desired (default false).
-        /// </summary>
+        /// </value>
         private bool ice = false;
-        /// <summary>
+        /// <value>
         /// Whether decaf is desired (default false).
-        /// </summary>
+        /// </value>
         private bool decaf = false;
-        /// <summary>
+        /// <value>
         /// Whether room for cream is desired (default false).
-        /// </summary>
+        /// </value>
         private bool roomForCream = false;
-        /// <summary>
+        /// <value>
         /// Which size drink is desired (default small).
-        /// </summary>
+        /// </value>
         private Size size = Size.Small;
 
         /// <summary>

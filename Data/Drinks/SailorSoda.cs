@@ -15,17 +15,17 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class SailorSoda
     {
-        /// <summary>
+        /// <value>
         /// Whether ice is desired (default true).
-        /// </summary>
+        /// </value>
         private bool ice = true;
-        /// <summary>
+        /// <value>
         /// Which size drink is desired (default small).
-        /// </summary>
+        /// </value>
         private Size size = Size.Small;
-        /// <summary>
+        /// <value>
         /// Which drink flavor is desired (default cherry).
-        /// </summary>
+        /// </value>
         private SodaFlavor flavor = SodaFlavor.Cherry;
 
         /// <summary>

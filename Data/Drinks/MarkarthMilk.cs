@@ -15,13 +15,13 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class MarkarthMilk
     {
-        /// <summary>
+        /// <value>
         /// Whether ice is desired (default false).
-        /// </summary>
+        /// </value>
         private bool ice = false;
-        /// <summary>
+        /// <value>
         /// Which size drink is desired (default small).
-        /// </summary>
+        /// </value>
         private Size size = Size.Small;
         
         /// <summary>

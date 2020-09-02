@@ -13,25 +13,25 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class BriarheartBurger
     {
-        /// <summary>
+        /// <value>
         /// Whether a bun is desired (default true).
-        /// </summary>
+        /// </value>
         private bool bun = true;
-        /// <summary>
+        /// <value>
         /// Whether ketchup is desired (default true).
-        /// </summary>
+        /// </value>
         private bool ketchup = true;
-        /// <summary>
+        /// <value>
         /// Whether mustard is desired (default true).
-        /// </summary>
+        /// </value>
         private bool mustard = true;
-        /// <summary>
+        /// <value>
         /// Whether pickles are desired (default true).
-        /// </summary>
+        /// </value>
         private bool pickle = true;
-        /// <summary>
+        /// <value>
         /// Whether cheese is desired (default true).
-        /// </summary>
+        /// </value>
         private bool cheese = true;
 
         /// <summary>

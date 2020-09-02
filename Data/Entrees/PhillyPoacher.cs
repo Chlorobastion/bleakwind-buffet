@@ -13,17 +13,17 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class PhillyPoacher
     {
-        /// <summary>
+        /// <value>
         /// Whether sirloin is desired (default true).
-        /// </summary>
+        /// </value>
         private bool sirloin = true;
-        /// <summary>
+        /// <value>
         /// Whether onions are desired (default true).
-        /// </summary>
+        /// </value>
         private bool onion = true;
-        /// <summary>
+        /// <value>
         /// Whether rolls are desired (default true).
-        /// </summary>
+        /// </value>
         private bool roll = true;
 
         /// <summary>

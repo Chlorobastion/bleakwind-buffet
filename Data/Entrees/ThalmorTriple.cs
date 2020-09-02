@@ -13,45 +13,45 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThalmorTriple
     {
-        /// <summary>
+        /// <value>
         /// Whether a bun is desired (default true).
-        /// </summary>
+        /// </value>
         private bool bun = true;
-        /// <summary>
+        /// <value>
         /// Whether ketchup is desired (default true).
-        /// </summary>
+        /// </value>
         private bool ketchup = true;
-        /// <summary>
+        /// <value>
         /// Whether mustard is desired (default true).
-        /// </summary>
+        /// </value>
         private bool mustard = true;
-        /// <summary>
+        /// <value>
         /// Whether pickles are desired (default true).
-        /// </summary>
+        /// </value>
         private bool pickle = true;
-        /// <summary>
+        /// <value>
         /// Whether cheese is desired (default true).
-        /// </summary>
+        /// </value>
         private bool cheese = true;
-        /// <summary>
+        /// <value>
         /// Whether tomatoes are desired (default true).
-        /// </summary>
+        /// </value>
         private bool tomato = true;
-        /// <summary>
+        /// <value>
         /// Whether lettuce is desired (default true).
-        /// </summary>
+        /// </value>
         private bool lettuce = true;
-        /// <summary>
+        /// <value>
         /// Whether mayo is desired (default true).
-        /// </summary>
+        /// </value>
         private bool mayo = true;
-        /// <summary>
+        /// <value>
         /// Whether bacon is desired (default true).
-        /// </summary>
+        /// </value>
         private bool bacon = true;
-        /// <summary>
+        /// <value>
         /// Whether egg is desired (default true).
-        /// </summary>
+        /// </value>
         private bool egg = true;
 
         /// <summary>

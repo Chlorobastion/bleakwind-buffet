@@ -15,17 +15,17 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class WarriorWater
     {
-        /// <summary>
+        /// <value>
         /// Whether ice is desired (default true).
-        /// </summary>
+        /// </value>
         private bool ice = true;
-        /// <summary>
+        /// <value>
         /// Whether lemon is desired (default false).
-        /// </summary>
+        /// </value>
         private bool lemon = false;
-        /// <summary>
+        /// <value>
         /// Which size drink is desired (default small).
-        /// </summary>
+        /// </value>
         private Size size = Size.Small;
 
         /// <summary>
