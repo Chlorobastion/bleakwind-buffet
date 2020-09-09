@@ -11,12 +11,12 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class used to represent the thugs t-bone as described.
     /// </summary>
-    public class ThugsTBone
+    public class ThugsTBone : Entree
     {
         /// <summary>
         /// Basic getter for the price.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 6.44; }
         }
@@ -24,7 +24,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Basic getter for the number of calories.
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 982; }
         }
@@ -33,7 +33,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// Getter for special instructions on order (always returns an
         /// empty list for this class).
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

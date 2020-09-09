@@ -99,5 +99,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             mog.Size = size;
             Assert.Equal(name, mog.ToString());
         }
+
+        /// <summary>
+        /// Tests if Mad Otar Grits implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.IsAssignableFrom<IOrderItem>(mog);
+        }
+
+        /// <summary>
+        /// Tests if Mad Otar Grits can be cast to Side base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractSideClass()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.IsAssignableFrom<Side>(mog);
+        }
     }
 }

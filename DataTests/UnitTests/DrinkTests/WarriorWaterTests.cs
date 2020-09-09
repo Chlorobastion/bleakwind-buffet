@@ -154,5 +154,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             ww.Size = size;
             Assert.Equal(name, ww.ToString());
         }
+
+        /// <summary>
+        /// Tests if Warrior Water implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.IsAssignableFrom<IOrderItem>(ww);
+        }
+
+        /// <summary>
+        /// Tests if Warrior Water can be cast to Drink base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(ww);
+        }
     }
 }

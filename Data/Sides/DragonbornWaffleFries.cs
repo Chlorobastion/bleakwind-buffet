@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Class used to represent the dragonborn waffle fries as described.
     /// </summary>
-    public class DragonbornWaffleFries
+    public class DragonbornWaffleFries : Side
     {
         /// <value>
         /// Which size side is desired (default small).
@@ -21,24 +21,15 @@ namespace BleakwindBuffet.Data.Sides
         private Size size = Size.Small;
 
         /// <summary>
-        /// Basic getter/setter for the size variable.
-        /// </summary>
-        public Size Size
-        {
-            get { return size; }
-            set { size = value; }
-        }
-
-        /// <summary>
         /// Basic getter for the price.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size.Equals(Size.Small))
+                if (Size.Equals(Size.Small))
                 { return 0.42; }
-                else if (size.Equals(Size.Medium))
+                else if (Size.Equals(Size.Medium))
                 { return 0.76; }
                 else
                 { return 0.96; }
@@ -48,13 +39,13 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Basic getter for the number of calories.
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size.Equals(Size.Small))
+                if (Size.Equals(Size.Small))
                 { return 77; }
-                else if (size.Equals(Size.Medium))
+                else if (Size.Equals(Size.Medium))
                 { return 89; }
                 else
                 { return 100; }
@@ -65,7 +56,7 @@ namespace BleakwindBuffet.Data.Sides
         /// Getter for special instructions on order (sides will
         /// always return an empty list).
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -81,7 +72,7 @@ namespace BleakwindBuffet.Data.Sides
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(size.ToString());
+            sb.Append(Size.ToString());
             sb.Append(" ");
             sb.Append("Dragonborn Waffle Fries");
 

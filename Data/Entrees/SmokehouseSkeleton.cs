@@ -11,7 +11,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class used to represent the smokehouse skeleton as described.
     /// </summary>
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : Entree
     {
         /// <value>
         /// Whether a sausage is desired (default true).
@@ -69,7 +69,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Basic getter for the price.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 5.62; }
         }
@@ -77,7 +77,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Basic getter for the number of calories.
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 602; }
         }
@@ -88,7 +88,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// says what needs held off; if everything is desired, this getter
         /// returns an empty list).
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

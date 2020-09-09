@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class used to represent the sailor soda as described.
     /// </summary>
-    public class SailorSoda
+    public class SailorSoda : Drink
     {
         /// <value>
         /// Whether ice is desired (default true).
@@ -38,15 +38,6 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// Basic getter/setter for the size variable.
-        /// </summary>
-        public Size Size
-        {
-            get { return size; }
-            set { size = value; }
-        }
-
-        /// <summary>
         /// Basic getter/setter for the flavor variable.
         /// </summary>
         public SodaFlavor Flavor
@@ -58,13 +49,13 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Basic getter for the price.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size.Equals(Size.Small))
+                if (Size.Equals(Size.Small))
                 { return 1.42; }
-                else if (size.Equals(Size.Medium))
+                else if (Size.Equals(Size.Medium))
                 { return 1.74; }
                 else
                 { return 2.07; }
@@ -74,13 +65,13 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Basic getter for the number of calories.
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size.Equals(Size.Small))
+                if (Size.Equals(Size.Small))
                 { return 117; }
-                else if (size.Equals(Size.Medium))
+                else if (Size.Equals(Size.Medium))
                 { return 153; }
                 else
                 { return 205; }
@@ -93,7 +84,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// says what needs held off; if everything is desired, this getter
         /// returns an empty list).
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -112,7 +103,7 @@ namespace BleakwindBuffet.Data.Drinks
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(size.ToString());
+            sb.Append(Size.ToString());
             sb.Append(" ");
             sb.Append(flavor.ToString());
             sb.Append(" ");

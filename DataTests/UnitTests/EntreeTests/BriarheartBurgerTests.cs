@@ -191,5 +191,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             BriarheartBurger bb = new BriarheartBurger();
             Assert.Equal("Briarheart Burger", bb.ToString());
         }
+
+        /// <summary>
+        /// Tests if Briarheart Burger implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.IsAssignableFrom<IOrderItem>(bb);
+        }
+
+        /// <summary>
+        /// Tests if Briarheart Burger can be cast to Entree base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractEntreeClass()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.IsAssignableFrom<Entree>(bb);
+        }
     }
 }

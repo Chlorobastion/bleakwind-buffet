@@ -324,5 +324,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ThalmorTriple tt = new ThalmorTriple();
             Assert.Equal("Thalmor Triple", tt.ToString());
         }
+
+        /// <summary>
+        /// Tests if Thalmor Triple implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.IsAssignableFrom<IOrderItem>(tt);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple can be cast to Entree base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractEntreeClass()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.IsAssignableFrom<Entree>(tt);
+        }
     }
 }

@@ -99,5 +99,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             dbwf.Size = size;
             Assert.Equal(name, dbwf.ToString());
         }
+
+        /// <summary>
+        /// Tests if Dragonborn Waffle Fries implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            DragonbornWaffleFries dbwf = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<IOrderItem>(dbwf);
+        }
+
+        /// <summary>
+        /// Tests if Dragonborn Waffle Fries can be cast to Side base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractSideClass()
+        {
+            DragonbornWaffleFries dbwf = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<Side>(dbwf);
+        }
     }
 }

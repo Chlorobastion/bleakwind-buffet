@@ -17,20 +17,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     /// </summary>
     public class CandlehearthCoffeeTests
     {
-
-        [Fact]
-        public void ShouldBeAssignableToAbstractDrinkClass()
-        {
-
-        }
-
-
-        [Fact]
-        public void ShouldBeAssignableToIOrderItemInterface()
-        {
-
-        }
-
         /// <summary>
         /// Tests if ice is included by default (it should not be).
         /// </summary>
@@ -196,6 +182,26 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             cc.Decaf = decaf;
             cc.Size = size;
             Assert.Equal(name, cc.ToString());
+        }
+
+        /// <summary>
+        /// Tests if Candlehearth Coffee implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<IOrderItem>(cc);
+        }
+
+        /// <summary>
+        /// Tests if Candlehearth Coffee can be cast to Drink base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<Drink>(cc);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class used to represent the double draugr as described.
     /// </summary>
-    public class DoubleDraugr
+    public class DoubleDraugr : Entree
     {
         /// <value>
         /// Whether a bun is desired (default true).
@@ -121,7 +121,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Basic getter for the price.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 7.32; }
         }
@@ -129,7 +129,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Basic getter for the number of calories.
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 843; }
         }
@@ -140,7 +140,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// says what needs held off; if everything is desired, this getter
         /// returns an empty list).
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

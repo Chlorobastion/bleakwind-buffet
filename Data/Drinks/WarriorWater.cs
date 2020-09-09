@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class used to represent the warrior water as described.
     /// </summary>
-    public class WarriorWater
+    public class WarriorWater : Drink
     {
         /// <value>
         /// Whether ice is desired (default true).
@@ -38,15 +38,6 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// Basic getter/setter for the size variable.
-        /// </summary>
-        public Size Size
-        {
-            get { return size; }
-            set { size = value; }
-        }
-
-        /// <summary>
         /// Basic getter/setter for the lemon variable.
         /// </summary>
         public bool Lemon
@@ -58,7 +49,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Basic getter for the price.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 0.00; }
         }
@@ -66,7 +57,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Basic getter for the number of calories.
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 0; }
         }
@@ -77,7 +68,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// says what needs added; if nothing is desired, this getter
         /// returns an empty list).
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -98,7 +89,7 @@ namespace BleakwindBuffet.Data.Drinks
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(size.ToString());
+            sb.Append(Size.ToString());
             sb.Append(" ");
             sb.Append("Warrior Water");
 

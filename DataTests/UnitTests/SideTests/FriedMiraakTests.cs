@@ -100,5 +100,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             fm.Size = size;
             Assert.Equal(name, fm.ToString());
         }
+
+        /// <summary>
+        /// Tests if Fried Miraak implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.IsAssignableFrom<IOrderItem>(fm);
+        }
+
+        /// <summary>
+        /// Tests if Fried Miraak can be cast to Side base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractSideClass()
+        {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.IsAssignableFrom<Side>(fm);
+        }
     }
 }

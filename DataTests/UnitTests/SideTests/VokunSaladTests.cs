@@ -99,5 +99,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             vs.Size = size;
             Assert.Equal(name, vs.ToString());
         }
+
+        /// <summary>
+        /// Tests if Vokun Salad implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            VokunSalad vs = new VokunSalad();
+            Assert.IsAssignableFrom<IOrderItem>(vs);
+        }
+
+        /// <summary>
+        /// Tests if Vokun Salad can be cast to Side base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractSideClass()
+        {
+            VokunSalad vs = new VokunSalad();
+            Assert.IsAssignableFrom<Side>(vs);
+        }
     }
 }

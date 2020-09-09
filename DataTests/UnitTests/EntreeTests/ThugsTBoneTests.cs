@@ -57,5 +57,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ThugsTBone ttb = new ThugsTBone();
             Assert.Equal("Thugs T-Bone", ttb.ToString());
         }
+
+        /// <summary>
+        /// Tests if Thugs T-Bone implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            ThugsTBone ttb = new ThugsTBone();
+            Assert.IsAssignableFrom<IOrderItem>(ttb);
+        }
+
+        /// <summary>
+        /// Tests if Thugs T-Bone can be cast to Entree base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractEntreeClass()
+        {
+            ThugsTBone ttb = new ThugsTBone();
+            Assert.IsAssignableFrom<Entree>(ttb);
+        }
     }
 }

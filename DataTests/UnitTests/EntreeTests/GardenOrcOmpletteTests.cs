@@ -166,5 +166,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmelette goo = new GardenOrcOmelette();
             Assert.Equal("Garden Orc Omelette", goo.ToString());
         }
+
+        /// <summary>
+        /// Tests if Garden Orc Omelette implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<IOrderItem>(goo);
+        }
+
+        /// <summary>
+        /// Tests if Garden Orc Omelette can be cast to Entree base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractEntreeClass()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<Entree>(goo);
+        }
     }
 }

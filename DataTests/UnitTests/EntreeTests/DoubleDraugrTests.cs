@@ -271,5 +271,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             DoubleDraugr dd = new DoubleDraugr();
             Assert.Equal("Double Draugr", dd.ToString());
         }
+
+        /// <summary>
+        /// Tests if Double Draugr implements the IOrderItem Interface.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.IsAssignableFrom<IOrderItem>(dd);
+        }
+
+        /// <summary>
+        /// Tests if Double Draugr can be cast to Entree base class.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAssignableToAbstractEntreeClass()
+        {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.IsAssignableFrom<Entree>(dd);
+        }
     }
 }
