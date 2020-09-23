@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="PointOfSale.SailorSodaCustomization"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1440">
+    <!--This border is used to represent the whole space.-->
+    <Border Name="fullComponentBorder" Grid.ColumnSpan="3" Grid.RowSpan="3" Background="DarkGray">
+        <!--This grid is used to organize the data stored in it.-->
+        <Grid Name="fullCustomizationGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <!--This is the title at the top of the page.-->
+            <TextBlock FontSize="40" FontWeight="Bold" Grid.ColumnSpan="3" TextAlignment="Center">
+            Customize Sailor Soda
+            </TextBlock>
+            <!--Set of large check box list.-->
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <!--Creates a new check box with given parameters.-->
+                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="True" VerticalContentAlignment="Center">
+                    <!--Makes the check box bigger.-->
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="4" ScaleY="4"/>
+                    </CheckBox.LayoutTransform>
+                    Ice
+                </CheckBox>
+            </StackPanel>
+            <!--Creates divided area for size and type selectors.-->
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <!--Group of radio buttons for size.-->
+                <StackPanel>
+                    <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Size" IsChecked="True">Small</RadioButton>
+                    <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Size">Medium</RadioButton>
+                    <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Size">Large</RadioButton>
+                </StackPanel>
+                <!--Group of radio buttons for flavor.-->
+                <StackPanel Grid.Row="1">
+                    <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Flavor">Blackberry</RadioButton>
+                    <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Flavor" IsChecked="True">Cherry</RadioButton>
+                    <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Flavor">Grapefruit</RadioButton>
+                    <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Flavor">Lemon</RadioButton>
+                    <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Flavor">Peach</RadioButton>
+                    <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Flavor">Watermelon</RadioButton>
+                </StackPanel>
+            </Grid>
+            <!--Creates the cancel button.-->
+            <Border Grid.Row="2" Grid.Column="1" BorderThickness="20">
+                <Button Click="CancelItemOrder" Name="cancelButton" FontSize="40" FontWeight="UltraBold">
+                    Cancel
+                </Button>
+            </Border>
+            <!--Creates the next button.-->
+            <Border Grid.Row="2" Grid.Column="2" BorderThickness="20">
+                <Button Click="NextItemOrder" Name="nextButton" FontSize="40" FontWeight="UltraBold">
+                    Next
+                </Button>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>
