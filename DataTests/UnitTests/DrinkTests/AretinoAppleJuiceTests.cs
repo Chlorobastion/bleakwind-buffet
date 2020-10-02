@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -146,6 +147,39 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
             Assert.IsAssignableFrom<Drink>(aj);
+        }
+
+        /// <summary>
+        /// Tests if Aretino Apple Juice implements INotifyPropertyChanged.
+        /// </summary>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(aj);
+        }
+
+        /// <summary>
+        /// Tests if Aretino Apple Juice notifies of Size change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSizeChange()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Size", () => aj.Size = Size.Small);
+            Assert.PropertyChanged(aj, "Size", () => aj.Size = Size.Medium);
+            Assert.PropertyChanged(aj, "Size", () => aj.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Aretino Apple Juice notifies of Ice change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfIceChange()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Ice", () => aj.Ice = false);
+            Assert.PropertyChanged(aj, "Ice", () => aj.Ice = true);
         }
     }
 }

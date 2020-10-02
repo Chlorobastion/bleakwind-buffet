@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using NuGet.Frameworks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -185,6 +186,60 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette goo = new GardenOrcOmelette();
             Assert.IsAssignableFrom<Entree>(goo);
+        }
+
+        /// <summary>
+        /// Tests if Garden Orc Omelette implements INotifyPropertyChanged.
+        /// </summary>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(goo);
+        }
+
+        /// <summary>
+        /// Tests if Garden Orc Omelette notifies of Broccoli change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfBroccoliChange()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.PropertyChanged(goo, "Broccoli", () => goo.Broccoli = false);
+            Assert.PropertyChanged(goo, "Broccoli", () => goo.Broccoli = true);
+        }
+
+        /// <summary>
+        /// Tests if Garden Orc Omelette notifies of Mushrooms change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfMushroomsChange()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.PropertyChanged(goo, "Mushrooms", () => goo.Mushrooms = false);
+            Assert.PropertyChanged(goo, "Mushrooms", () => goo.Mushrooms = true);
+        }
+
+        /// <summary>
+        /// Tests if Garden Orc Omelette notifies of Tomato change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfTomatoChange()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.PropertyChanged(goo, "Tomato", () => goo.Tomato = false);
+            Assert.PropertyChanged(goo, "Tomato", () => goo.Tomato = true);
+        }
+
+        /// <summary>
+        /// Tests if Garden Orc Omelette notifies of Cheddar change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfCheddarChange()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.PropertyChanged(goo, "Cheddar", () => goo.Cheddar = false);
+            Assert.PropertyChanged(goo, "Cheddar", () => goo.Cheddar = true);
         }
     }
 }

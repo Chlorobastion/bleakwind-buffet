@@ -11,6 +11,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -202,6 +203,54 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             SailorSoda ss = new SailorSoda();
             Assert.IsAssignableFrom<Drink>(ss);
+        }
+
+        /// <summary>
+        /// Tests if Sailor Soda implements INotifyPropertyChanged.
+        /// </summary>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ss);
+        }
+
+        /// <summary>
+        /// Tests if Sailor Soda notifies of Size change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSizeChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Size", () => ss.Size = Size.Small);
+            Assert.PropertyChanged(ss, "Size", () => ss.Size = Size.Medium);
+            Assert.PropertyChanged(ss, "Size", () => ss.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Sailor Soda notifies of Ice change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfIceChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Ice", () => ss.Ice = false);
+            Assert.PropertyChanged(ss, "Ice", () => ss.Ice = true);
+        }
+
+        /// <summary>
+        /// Tests if Sailor Soda notifies of Flavor change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfFlavorChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Flavor", () => ss.Flavor = SodaFlavor.Blackberry);
+            Assert.PropertyChanged(ss, "Flavor", () => ss.Flavor = SodaFlavor.Cherry);
+            Assert.PropertyChanged(ss, "Flavor", () => ss.Flavor = SodaFlavor.Grapefruit);
+            Assert.PropertyChanged(ss, "Flavor", () => ss.Flavor = SodaFlavor.Lemon);
+            Assert.PropertyChanged(ss, "Flavor", () => ss.Flavor = SodaFlavor.Peach);
+            Assert.PropertyChanged(ss, "Flavor", () => ss.Flavor = SodaFlavor.Watermelon);
         }
     }
 }

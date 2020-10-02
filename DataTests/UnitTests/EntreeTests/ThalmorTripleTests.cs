@@ -8,6 +8,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -343,6 +344,126 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThalmorTriple tt = new ThalmorTriple();
             Assert.IsAssignableFrom<Entree>(tt);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple implements INotifyPropertyChanged.
+        /// </summary>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(tt);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Bun change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfBunChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Bun", () => tt.Bun = false);
+            Assert.PropertyChanged(tt, "Bun", () => tt.Bun = true);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Ketchup change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfKetchupChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Ketchup", () => tt.Ketchup = false);
+            Assert.PropertyChanged(tt, "Ketchup", () => tt.Ketchup = true);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Mustard change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfMustardChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Mustard", () => tt.Mustard = false);
+            Assert.PropertyChanged(tt, "Mustard", () => tt.Mustard = true);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Pickle change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfPickleChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Pickle", () => tt.Pickle = false);
+            Assert.PropertyChanged(tt, "Pickle", () => tt.Pickle = true);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Cheese change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfCheeseChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Cheese", () => tt.Cheese = false);
+            Assert.PropertyChanged(tt, "Cheese", () => tt.Cheese = true);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Tomato change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfTomatoChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Tomato", () => tt.Tomato = false);
+            Assert.PropertyChanged(tt, "Tomato", () => tt.Tomato = true);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Lettuce change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfLettuceChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Lettuce", () => tt.Lettuce = false);
+            Assert.PropertyChanged(tt, "Lettuce", () => tt.Lettuce = true);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Mayo change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfMayoChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Mayo", () => tt.Mayo = false);
+            Assert.PropertyChanged(tt, "Mayo", () => tt.Mayo = true);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Bacon change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfBaconChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Bacon", () => tt.Bacon = false);
+            Assert.PropertyChanged(tt, "Bacon", () => tt.Bacon = true);
+        }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Egg change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfEggChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "Egg", () => tt.Egg = false);
+            Assert.PropertyChanged(tt, "Egg", () => tt.Egg = true);
         }
     }
 }

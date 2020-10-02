@@ -5,13 +5,14 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Class used to represent the smokehouse skeleton as described.
     /// </summary>
-    public class SmokehouseSkeleton : Entree
+    public class SmokehouseSkeleton : Entree, INotifyPropertyChanged
     {
         /// <value>
         /// Whether a sausage is desired (default true).
@@ -29,14 +30,23 @@ namespace BleakwindBuffet.Data.Entrees
         /// Whether pancakes are desired (default true).
         /// </value>
         private bool pancake = true;
-        
+
+        /// <summary>
+        /// Event triggered when a property changes
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Basic getter/setter for the sausageLink variable.
         /// </summary>
         public bool SausageLink
         {
             get { return sausageLink; }
-            set { sausageLink = value; }
+            set 
+            { 
+                sausageLink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+            }
         }
 
         /// <summary>
@@ -45,7 +55,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Egg
         {
             get { return egg; }
-            set { egg = value; }
+            set 
+            { 
+                egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+            }
         }
 
         /// <summary>
@@ -54,7 +68,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool HashBrowns
         {
             get { return hashBrowns; }
-            set { hashBrowns = value; }
+            set 
+            { 
+                hashBrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+            }
         }
 
         /// <summary>
@@ -63,7 +81,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pancake
         {
             get { return pancake; }
-            set { pancake = value; }
+            set 
+            { 
+                pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+            }
         }
 
         /// <summary>

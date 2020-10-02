@@ -8,6 +8,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -173,6 +174,50 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             WarriorWater ww = new WarriorWater();
             Assert.IsAssignableFrom<Drink>(ww);
+        }
+
+        /// <summary>
+        /// Tests if Warrior Water implements INotifyPropertyChanged.
+        /// </summary>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ww);
+        }
+
+        /// <summary>
+        /// Tests if Warrior Water notifies of Size change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSizeChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Size", () => ww.Size = Size.Small);
+            Assert.PropertyChanged(ww, "Size", () => ww.Size = Size.Medium);
+            Assert.PropertyChanged(ww, "Size", () => ww.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Warrior Water notifies of Ice change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfIceChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Ice", () => ww.Ice = false);
+            Assert.PropertyChanged(ww, "Ice", () => ww.Ice = true);
+        }
+
+        /// <summary>
+        /// Tests if Warrior Water notifies of Lemon change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfLemonChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Lemon", () => ww.Lemon = false);
+            Assert.PropertyChanged(ww, "Lemon", () => ww.Lemon = true);
         }
     }
 }

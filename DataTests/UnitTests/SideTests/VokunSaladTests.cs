@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -118,6 +119,28 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             VokunSalad vs = new VokunSalad();
             Assert.IsAssignableFrom<Side>(vs);
+        }
+
+        /// <summary>
+        /// Tests if Vokun Salad implements INotifyPropertyChanged.
+        /// </summary>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            VokunSalad vs = new VokunSalad();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(vs);
+        }
+
+        /// <summary>
+        /// Tests if Vokun Salad notifies of Size change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSizeChange()
+        {
+            VokunSalad vs = new VokunSalad();
+            Assert.PropertyChanged(vs, "Size", () => vs.Size = Size.Small);
+            Assert.PropertyChanged(vs, "Size", () => vs.Size = Size.Medium);
+            Assert.PropertyChanged(vs, "Size", () => vs.Size = Size.Large);
         }
     }
 }

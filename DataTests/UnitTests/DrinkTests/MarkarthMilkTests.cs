@@ -10,6 +10,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using NuGet.Frameworks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -147,6 +148,39 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             MarkarthMilk mm = new MarkarthMilk();
             Assert.IsAssignableFrom<Drink>(mm);
+        }
+
+        /// <summary>
+        /// Tests if Markarth Milk implements INotifyPropertyChanged.
+        /// </summary>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(mm);
+        }
+
+        /// <summary>
+        /// Tests if Markarth Milk notifies of Size change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSizeChange()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "Size", () => mm.Size = Size.Small);
+            Assert.PropertyChanged(mm, "Size", () => mm.Size = Size.Medium);
+            Assert.PropertyChanged(mm, "Size", () => mm.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Markarth Milk notifies of Ice change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfIceChange()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "Ice", () => mm.Ice = false);
+            Assert.PropertyChanged(mm, "Ice", () => mm.Ice = true);
         }
     }
 }

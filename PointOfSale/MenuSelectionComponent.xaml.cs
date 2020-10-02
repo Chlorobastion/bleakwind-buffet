@@ -4,6 +4,9 @@
  * Purpose: Partial class for the Menu Selection Component of the Bleakwind Buffet Point of Sale.
  */
 
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -61,6 +64,7 @@ namespace PointOfSale
         {
             var bbCustomization = new BriarheartBurgerCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            bbCustomization.DataContext = new BriarheartBurger();
             fullComponentBorder.Child = bbCustomization;
         }
 
@@ -73,6 +77,7 @@ namespace PointOfSale
         {
             var ddCustomization = new DoubleDraugrCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            ddCustomization.DataContext = new DoubleDraugr();
             fullComponentBorder.Child = ddCustomization;
         }
 
@@ -85,6 +90,7 @@ namespace PointOfSale
         {
             var ttCustomization = new ThalmorTripleCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            ttCustomization.DataContext = new ThalmorTriple();
             fullComponentBorder.Child = ttCustomization;
         }
 
@@ -97,6 +103,7 @@ namespace PointOfSale
         {
             var ssCustomization = new SmokehouseSkeletonCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            ssCustomization.DataContext = new SmokehouseSkeleton();
             fullComponentBorder.Child = ssCustomization;
         }
 
@@ -109,6 +116,7 @@ namespace PointOfSale
         {
             var gooCustomization = new GardenOrcOmeletteCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            gooCustomization.DataContext = new GardenOrcOmelette();
             fullComponentBorder.Child = gooCustomization;
         }
 
@@ -121,6 +129,7 @@ namespace PointOfSale
         {
             var ttbCustomization = new ThugsTBoneCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            ttbCustomization.DataContext = new ThugsTBone();
             fullComponentBorder.Child = ttbCustomization;
         }
 
@@ -133,6 +142,7 @@ namespace PointOfSale
         {
             var ppCustomization = new PhillyPoacherCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            ppCustomization.DataContext = new PhillyPoacher();
             fullComponentBorder.Child = ppCustomization;
         }
 
@@ -145,6 +155,7 @@ namespace PointOfSale
         {
             var ssCustomization = new SailorSodaCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            ssCustomization.DataContext = new SailorSoda();
             fullComponentBorder.Child = ssCustomization;
         }
 
@@ -157,6 +168,7 @@ namespace PointOfSale
         {
             var mmCustomization = new MarkarthMilkCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            mmCustomization.DataContext = new MarkarthMilk();
             fullComponentBorder.Child = mmCustomization;
         }
 
@@ -169,6 +181,7 @@ namespace PointOfSale
         {
             var ajCustomization = new AretinoAppleJuiceCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            ajCustomization.DataContext = new AretinoAppleJuice();
             fullComponentBorder.Child = ajCustomization;
         }
 
@@ -181,6 +194,7 @@ namespace PointOfSale
         {
             var ccCustomization = new CandlehearthCoffeeCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            ccCustomization.DataContext = new CandlehearthCoffee();
             fullComponentBorder.Child = ccCustomization;
         }
 
@@ -193,6 +207,7 @@ namespace PointOfSale
         {
             var wwCustomization = new WarriorWaterCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            wwCustomization.DataContext = new WarriorWater();
             fullComponentBorder.Child = wwCustomization;
         }
 
@@ -205,6 +220,7 @@ namespace PointOfSale
         {
             var vsCustomization = new VokunSaladCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            vsCustomization.DataContext = new VokunSalad();
             fullComponentBorder.Child = vsCustomization;
         }
 
@@ -217,6 +233,7 @@ namespace PointOfSale
         {
             var fmCustomization = new FriedMiraakCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            fmCustomization.DataContext = new FriedMiraak();
             fullComponentBorder.Child = fmCustomization;
         }
 
@@ -229,6 +246,7 @@ namespace PointOfSale
         {
             var mogCustomization = new MadOtarGritsCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            mogCustomization.DataContext = new MadOtarGrits();
             fullComponentBorder.Child = mogCustomization;
         }
 
@@ -241,6 +259,7 @@ namespace PointOfSale
         {
             var dwfCustomization = new DragonbornWaffleFriesCustomization();
             fullMenuSelectionGrid.Children.Clear();
+            dwfCustomization.DataContext = new DragonbornWaffleFries();
             fullComponentBorder.Child = dwfCustomization;
         }
     }

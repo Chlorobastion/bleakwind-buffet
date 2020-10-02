@@ -21,7 +21,7 @@
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
             <!--This is the title at the top of the page.-->
-            <TextBlock FontSize="40" FontWeight="Bold" Grid.ColumnSpan="3" TextAlignment="Center">
+            <TextBlock FontSize="60" FontWeight="Bold" Grid.ColumnSpan="3" TextAlignment="Center">
             Customize Thugs T-Bone
             </TextBlock>
             <!--The description of the item.-->

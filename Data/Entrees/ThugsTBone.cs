@@ -5,14 +5,20 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Class used to represent the thugs t-bone as described.
     /// </summary>
-    public class ThugsTBone : Entree
+    public class ThugsTBone : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event triggered when a property changes
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Basic getter for the price.
         /// </summary>

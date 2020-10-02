@@ -21,15 +21,17 @@
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
             <!--This is the title at the top of the page.-->
-            <TextBlock FontSize="40" FontWeight="Bold" Grid.ColumnSpan="3" TextAlignment="Center">
+            <TextBlock FontSize="60" FontWeight="Bold" Grid.ColumnSpan="3" TextAlignment="Center">
             Customize Mad Otar Grits
             </TextBlock>
+            
             <!--Group of radio buttons for size.-->
             <StackPanel Grid.Row="1" Grid.Column="2">
-                <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Size" IsChecked="True">Small</RadioButton>
-                <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Size">Medium</RadioButton>
-                <RadioButton FontSize="40" VerticalContentAlignment="Center" GroupName="Size">Large</RadioButton>
+                <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Size" IsChecked="True">Small</RadioButton>
+                <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Size">Medium</RadioButton>
+                <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Size">Large</RadioButton>
             </StackPanel>
+            
             <!--Creates the cancel button.-->
             <Border Grid.Row="2" Grid.Column="1" BorderThickness="20">
                 <Button Click="CancelItemOrder" Name="cancelButton" FontSize="40" FontWeight="UltraBold">

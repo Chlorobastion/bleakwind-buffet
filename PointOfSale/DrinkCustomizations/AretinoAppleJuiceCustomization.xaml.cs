@@ -56,9 +56,5 @@ namespace PointOfSale
             fullCustomizationGrid.Children.Clear();
             fullComponentBorder.Child = menu;
         }
-
-
-
-
     }
 }

@@ -8,6 +8,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -158,6 +159,49 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher pp = new PhillyPoacher();
             Assert.IsAssignableFrom<Entree>(pp);
+        }
+
+        /// <summary>
+        /// Tests if Philly Poacher implements INotifyPropertyChanged.
+        /// </summary>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(pp);
+        }
+
+        /// <summary>
+        /// Tests if Philly Poacher notifies of Sirloin change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSirloinChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "Sirloin", () => pp.Sirloin = false);
+            Assert.PropertyChanged(pp, "Sirloin", () => pp.Sirloin = true);
+        }
+
+        /// <summary>
+        /// Tests if Philly Poacher notifies of Onion change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfOnionChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "Onion", () => pp.Onion = false);
+            Assert.PropertyChanged(pp, "Onion", () => pp.Onion = true);
+        }
+
+        /// <summary>
+        /// Tests if Philly Poacher notifies of Roll change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfRollChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "Roll", () => pp.Roll = false);
+            Assert.PropertyChanged(pp, "Roll", () => pp.Roll = true);
         }
     }
 }

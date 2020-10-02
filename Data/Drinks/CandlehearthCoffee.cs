@@ -7,13 +7,14 @@
 using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Class used to represent the candlehearth coffee as described.
     /// </summary>
-    public class CandlehearthCoffee : Drink
+    public class CandlehearthCoffee : Drink, INotifyPropertyChanged
     {
         /// <value>
         /// Whether ice is desired (default false).
@@ -33,12 +34,21 @@ namespace BleakwindBuffet.Data.Drinks
         private Size size = Size.Small;
 
         /// <summary>
-        /// Basic getter/setter for the ice variable.
+        /// Event triggered when a property changes
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Ice property getter/setter
         /// </summary>
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
         }
 
         /// <summary>
@@ -47,7 +57,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Decaf
         {
             get { return decaf; }
-            set { decaf = value; }
+            set
+            {
+                decaf = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+            }
         }
 
         /// <summary>
@@ -56,7 +70,26 @@ namespace BleakwindBuffet.Data.Drinks
         public bool RoomForCream
         {
             get { return roomForCream; }
-            set { roomForCream = value; }
+            set
+            {
+                roomForCream = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+            }
+        }
+
+        /// <summary>
+        /// Size property getter/setter
+        /// </summary>
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
 
         /// <summary>

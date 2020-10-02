@@ -8,6 +8,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -184,6 +185,60 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.IsAssignableFrom<Entree>(ss);
+        }
+
+        /// <summary>
+        /// Tests if Smokehouse Skeleton implements INotifyPropertyChanged.
+        /// </summary>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ss);
+        }
+
+        /// <summary>
+        /// Tests if Smokehouse Skeleton notifies of SausagLink change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSausageLinkChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SausageLink", () => ss.SausageLink = false);
+            Assert.PropertyChanged(ss, "SausageLink", () => ss.SausageLink = true);
+        }
+
+        /// <summary>
+        /// Tests if Smokehouse Skeleton notifies of Egg change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfEggChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Egg", () => ss.Egg = false);
+            Assert.PropertyChanged(ss, "Egg", () => ss.Egg = true);
+        }
+
+        /// <summary>
+        /// Tests if Smokehouse Skeleton notifies of HashBrowns change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfHashBrownsChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "HashBrowns", () => ss.HashBrowns = false);
+            Assert.PropertyChanged(ss, "HashBrowns", () => ss.HashBrowns = true);
+        }
+
+        /// <summary>
+        /// Tests if Smokehouse Skeleton notifies of Pancake change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfPancakeChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Pancake", () => ss.Pancake = false);
+            Assert.PropertyChanged(ss, "Pancake", () => ss.Pancake = true);
         }
     }
 }

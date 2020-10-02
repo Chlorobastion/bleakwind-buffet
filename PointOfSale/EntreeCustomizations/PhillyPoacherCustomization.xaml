@@ -21,7 +21,7 @@
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
             <!--This is the title at the top of the page.-->
-            <TextBlock FontSize="40" FontWeight="Bold" Grid.ColumnSpan="3" TextAlignment="Center">
+            <TextBlock FontSize="60" FontWeight="Bold" Grid.ColumnSpan="3" TextAlignment="Center">
             Customize Philly Poacher
             </TextBlock>
             <!--The description of the item.-->
@@ -33,20 +33,20 @@
             <!--Set of large check box list.-->
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <!--Creates a new check box with given parameters.-->
-                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="True" VerticalContentAlignment="Center">
+                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="{Binding Path=Sirloin}" VerticalContentAlignment="Center">
                     <!--Makes the check box bigger.-->
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
                     </CheckBox.LayoutTransform>
                     Sirloin
                 </CheckBox>
-                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="True" VerticalContentAlignment="Center">
+                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="{Binding Path=Onion}" VerticalContentAlignment="Center">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
                     </CheckBox.LayoutTransform>
                     Onion
                 </CheckBox>
-                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="True" VerticalContentAlignment="Center">
+                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="{Binding Path=Roll}" VerticalContentAlignment="Center">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
                     </CheckBox.LayoutTransform>

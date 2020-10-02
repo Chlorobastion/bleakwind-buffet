@@ -21,7 +21,7 @@
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
             <!--This is the title at the top of the page.-->
-            <TextBlock FontSize="40" FontWeight="Bold" Grid.ColumnSpan="3" TextAlignment="Center">
+            <TextBlock FontSize="60" FontWeight="Bold" Grid.ColumnSpan="3" TextAlignment="Center">
             Customize Garden Orc Omelette
             </TextBlock>
             <!--The description of the item.-->
@@ -33,26 +33,26 @@
             <!--Set of large check box list.-->
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <!--Creates a new check box with given parameters.-->
-                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="True" VerticalContentAlignment="Center">
+                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="{Binding Path=Broccoli}" VerticalContentAlignment="Center">
                     <!--Makes the check box bigger.-->
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
                     </CheckBox.LayoutTransform>
                     Broccoli
                 </CheckBox>
-                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="True" VerticalContentAlignment="Center">
+                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="{Binding Path=Mushrooms}" VerticalContentAlignment="Center">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
                     </CheckBox.LayoutTransform>
                     Mushrooms
                 </CheckBox>
-                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="True" VerticalContentAlignment="Center">
+                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="{Binding Path=Tomato}" VerticalContentAlignment="Center">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
                     </CheckBox.LayoutTransform>
                     Tomato
                 </CheckBox>
-                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="True" VerticalContentAlignment="Center">
+                <CheckBox FontSize="10" FontWeight="Bold" IsChecked="{Binding Path=Cheddar}" VerticalContentAlignment="Center">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
                     </CheckBox.LayoutTransform>

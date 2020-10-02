@@ -9,6 +9,8 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
+using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -202,6 +204,61 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             CandlehearthCoffee cc = new CandlehearthCoffee();
             Assert.IsAssignableFrom<Drink>(cc);
+        }
+
+        /// <summary>
+        /// Tests if Candlehearth Coffee implements INotifyPropertyChanged.
+        /// </summary>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(cc);
+        }
+
+        /// <summary>
+        /// Tests if Candlehearth Coffee notifies of Size change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSizeChange()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.PropertyChanged(cc, "Size", () => cc.Size = Size.Small);
+            Assert.PropertyChanged(cc, "Size", () => cc.Size = Size.Medium);
+            Assert.PropertyChanged(cc, "Size", () => cc.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Candlehearth Coffee notifies of Ice change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfIceChange()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.PropertyChanged(cc, "Ice", () => cc.Ice = false);
+            Assert.PropertyChanged(cc, "Ice", () => cc.Ice = true);
+        }
+
+        /// <summary>
+        /// Tests if Candlehearth Coffee notifies of Ice change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfRoomForCreamChange()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.PropertyChanged(cc, "RoomForCream", () => cc.RoomForCream = false);
+            Assert.PropertyChanged(cc, "RoomForCream", () => cc.RoomForCream = true);
+        }
+
+        /// <summary>
+        /// Tests if Candlehearth Coffee notifies of Ice change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfDecafChange()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.PropertyChanged(cc, "Decaf", () => cc.Decaf = false);
+            Assert.PropertyChanged(cc, "Decaf", () => cc.Decaf = true);
         }
     }
 }

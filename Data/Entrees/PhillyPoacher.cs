@@ -5,13 +5,14 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Class used to represent the philly poacher as described.
     /// </summary>
-    public class PhillyPoacher : Entree
+    public class PhillyPoacher : Entree, INotifyPropertyChanged
     {
         /// <value>
         /// Whether sirloin is desired (default true).
@@ -27,12 +28,21 @@ namespace BleakwindBuffet.Data.Entrees
         private bool roll = true;
 
         /// <summary>
+        /// Event triggered when a property changes
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
         /// Basic getter/setter for the sirloin variable.
         /// </summary>
         public bool Sirloin
         {
             get { return sirloin; }
-            set { sirloin = value; }
+            set 
+            { 
+                sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+            }
         }
 
         /// <summary>
@@ -41,7 +51,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Onion
         {
             get { return onion; }
-            set { onion = value; }
+            set 
+            { 
+                onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+            }
         }
 
         /// <summary>
@@ -50,7 +64,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Roll
         {
             get { return roll; }
-            set { roll = value; }
+            set 
+            { 
+                roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+            }
         }
 
         /// <summary>

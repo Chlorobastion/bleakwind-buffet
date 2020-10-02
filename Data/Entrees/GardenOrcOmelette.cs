@@ -5,13 +5,14 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Class used to represent the garden orc omelette as described.
     /// </summary>
-    public class GardenOrcOmelette : Entree
+    public class GardenOrcOmelette : Entree, INotifyPropertyChanged
     {
         /// <value>
         /// Whether broccoli is desired (default true).
@@ -31,12 +32,21 @@ namespace BleakwindBuffet.Data.Entrees
         private bool cheddar = true;
 
         /// <summary>
+        /// Event triggered when a property changes
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
         /// Basic getter/setter for the broccoli variable.
         /// </summary>
         public bool Broccoli
         {
             get { return broccoli; }
-            set { broccoli = value; }
+            set 
+            { 
+                broccoli = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
+            }
         }
 
         /// <summary>
@@ -45,7 +55,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mushrooms
         {
             get { return mushrooms; }
-            set { mushrooms = value; }
+            set 
+            { 
+                mushrooms = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
+            }
         }
 
         /// <summary>
@@ -54,7 +68,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Tomato
         {
             get { return tomato; }
-            set { tomato = value; }
+            set 
+            { 
+                tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+            }
         }
 
         /// <summary>
@@ -63,7 +81,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheddar
         {
             get { return cheddar; }
-            set { cheddar = value; }
+            set 
+            { 
+                cheddar = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
+            }
         }
 
         /// <summary>
