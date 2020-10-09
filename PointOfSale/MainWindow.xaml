@@ -14,8 +14,86 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <local:MenuSelectionComponent/>
-        <local:FinalOrderComponent Grid.Column="1" Background="DarkGray"/>
+        <Border Name="mscBorder" Grid.Column="0" Grid.Row="1">
+            <local:MenuSelectionComponent x:Name="menuSelectionComponent"/>
+        </Border>
+
+        <DockPanel Background="DarkGray" Grid.Column="2" Name="finalOrderDockPanel">
+            <!--Order number section.-->
+            <TextBlock Name="orderNumberTextBlock" DockPanel.Dock="Top" FontSize="45" FontWeight="Bold" TextAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock>Order #</TextBlock>
+                    <TextBlock Text="{Binding Path=Number}" />
+                </StackPanel>
+            </TextBlock>
+            <!--Space from bottom of window.-->
+            <TextBlock DockPanel.Dock="Bottom" FontSize="5"/>
+            <!--Button to cancel total order.-->
+            <Border DockPanel.Dock="Bottom" BorderThickness="8">
+                <Button Click="CancelOrder" Name="cancelButton" FontSize="40">
+                    Cancel Order
+                </Button>
+            </Border>
+            <!--Button to finish total order.-->
+            <Border DockPanel.Dock="Bottom" BorderThickness="8">
+                <Button Click="FinishOrder" Name="finishButton" FontSize="40">
+                    Finish Order
+                </Button>
+            </Border>
+            <!--Button to cancel orders.-->
+            <Border DockPanel.Dock="Bottom" BorderThickness="8">
+                <Button Name="removeButton" Click="CancelItem" FontSize="40">
+                    Remove Item
+                </Button>
+            </Border>
+            <!--Total cost section-->
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontWeight="Bold" FontSize="45">Total: $</TextBlock>
+                <TextBlock FontWeight="Bold"  FontSize="45" Text="{Binding Path=Total}" />
+            </StackPanel>
+            <!--Tax cost section-->
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontSize="45">Tax: $</TextBlock>
+                <TextBlock FontSize="45" Text="{Binding Path=Tax}" />
+            </StackPanel>
+            <!--Subtotal cost section-->
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontSize="45">Subtotal: $</TextBlock>
+                <TextBlock FontSize="45" Text="{Binding Path=Subtotal}" />
+            </StackPanel>
+            
+            <!--List of items on the order-->
+            <Border BorderThickness="10">
+                <ListView Name="orderList" ItemsSource="{Binding}" SelectionChanged="ChangeItemSelected" IsSynchronizedWithCurrentItem="True">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                
+                                <!--Equals and Dollar symbols.-->
+                                <TextBlock Grid.Column="2" VerticalAlignment="Center" FontSize="20">=$</TextBlock>
+                                <!--Price of the item in the order.-->
+                                <TextBlock Grid.Column="3" VerticalAlignment="Center" FontSize="20" Text="{Binding Path=Price}"/>
+                                <!--Name of the item in the order.-->
+                                <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="20" Text="{Binding Path=Name}"/>
+                                <!--Special Instructions for item in the order below other information.-->
+                                <ListBox Grid.Column="1" Grid.Row="1" FontSize="15" IsEnabled="False" ItemsSource="{Binding Path=SpecialInstructions}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListView>
+            </Border>
+
+        </DockPanel>
     </Grid>
     
 </Window>

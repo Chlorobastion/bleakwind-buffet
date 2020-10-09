@@ -229,6 +229,30 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         /// <summary>
+        /// Tests if Candlehearth Coffee notifies of Price change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfPriceChange()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.PropertyChanged(cc, "Price", () => cc.Size = Size.Small);
+            Assert.PropertyChanged(cc, "Price", () => cc.Size = Size.Medium);
+            Assert.PropertyChanged(cc, "Price", () => cc.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Candlehearth Coffee notifies of Calories change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfCaloriesChange()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.PropertyChanged(cc, "Calories", () => cc.Size = Size.Small);
+            Assert.PropertyChanged(cc, "Calories", () => cc.Size = Size.Medium);
+            Assert.PropertyChanged(cc, "Calories", () => cc.Size = Size.Large);
+        }
+
+        /// <summary>
         /// Tests if Candlehearth Coffee notifies of Ice change.
         /// </summary>
         [Fact]
@@ -240,7 +264,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         /// <summary>
-        /// Tests if Candlehearth Coffee notifies of Ice change.
+        /// Tests if Candlehearth Coffee notifies of Room for Cream change.
         /// </summary>
         [Fact]
         public void ShouldNotifyOfRoomForCreamChange()
@@ -251,7 +275,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         /// <summary>
-        /// Tests if Candlehearth Coffee notifies of Ice change.
+        /// Tests if Candlehearth Coffee notifies of Decaf change.
         /// </summary>
         [Fact]
         public void ShouldNotifyOfDecafChange()
@@ -259,6 +283,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             CandlehearthCoffee cc = new CandlehearthCoffee();
             Assert.PropertyChanged(cc, "Decaf", () => cc.Decaf = false);
             Assert.PropertyChanged(cc, "Decaf", () => cc.Decaf = true);
+        }
+
+        /// <summary>
+        /// Tests if Candlehearth Coffee notifies of Special Instructions change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSpecialInstructionsChange()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.PropertyChanged(cc, "SpecialInstructions", () => cc.Ice = false);
+            Assert.PropertyChanged(cc, "SpecialInstructions", () => cc.Ice = true);
+            Assert.PropertyChanged(cc, "SpecialInstructions", () => cc.RoomForCream = false);
+            Assert.PropertyChanged(cc, "SpecialInstructions", () => cc.RoomForCream = true);
         }
     }
 }

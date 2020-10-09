@@ -53,12 +53,6 @@
                     Roll
                 </CheckBox>
             </StackPanel>
-            <!--Creates the cancel button.-->
-            <Border Grid.Row="2" Grid.Column="1" BorderThickness="20">
-                <Button Click="CancelItemOrder" Name="cancelButton" FontSize="40" FontWeight="UltraBold">
-                    Cancel
-                </Button>
-            </Border>
             <!--Creates the next button.-->
             <Border Grid.Row="2" Grid.Column="2" BorderThickness="20">
                 <Button Click="NextItemOrder" Name="nextButton" FontSize="40" FontWeight="UltraBold">

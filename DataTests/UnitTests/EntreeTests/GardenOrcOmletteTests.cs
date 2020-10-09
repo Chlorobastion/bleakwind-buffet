@@ -241,5 +241,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(goo, "Cheddar", () => goo.Cheddar = false);
             Assert.PropertyChanged(goo, "Cheddar", () => goo.Cheddar = true);
         }
+
+        /// <summary>
+        /// Tests if Garden Orc Omelette notifies of Special Instructions change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSpecialInstructionsChange()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => goo.Broccoli = false);
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => goo.Broccoli = true);
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => goo.Mushrooms = false);
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => goo.Mushrooms = true);
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => goo.Tomato = false);
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => goo.Tomato = true);
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => goo.Cheddar = false);
+            Assert.PropertyChanged(goo, "SpecialInstructions", () => goo.Cheddar = true);
+        }
     }
 }

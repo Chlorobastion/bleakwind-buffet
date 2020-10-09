@@ -14,6 +14,17 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class DoubleDraugr : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Getter for name of item.
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return ToString();
+            }
+        }
+
         /// <value>
         /// Whether a bun is desired (default true).
         /// </value>
@@ -62,6 +73,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 bun = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -75,6 +87,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 ketchup = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -88,6 +101,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 mustard = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -101,6 +115,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 pickle = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -114,6 +129,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 cheese = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -127,6 +143,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 tomato = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -140,6 +157,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 lettuce = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -153,6 +171,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 mayo = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

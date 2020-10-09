@@ -3,6 +3,7 @@
  * Interface name: Menu.cs
  * Purpose: Static class for the Menu.
  */
+
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;

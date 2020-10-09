@@ -16,6 +16,17 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class WarriorWater : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Getter for name of item.
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return ToString();
+            }
+        }
+
         /// <value>
         /// Whether ice is desired (default true).
         /// </value>
@@ -44,6 +55,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 ice = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -57,6 +69,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
         }
 
@@ -70,6 +83,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 lemon = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         

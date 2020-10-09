@@ -19,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale
 {
@@ -36,35 +37,17 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Click event for cancelButton. Cancels entire order when button is clicked.
-        /// </summary>
-        /// <param name="sender">Reference to the object that raised the event.</param>
-        /// <param name="e">Contains the event data.</param>
-        void CancelOrder(object sender, RoutedEventArgs e)
-        {
-        
-        }
-
-        /// <summary>
-        /// Click event for finishButton. Finishes entire order when button is clicked.
-        /// </summary>
-        /// <param name="sender">Reference to the object that raised the event.</param>
-        /// <param name="e">Contains the event data.</param>
-        void FinishOrder(object sender, RoutedEventArgs e)
-        {
-        
-        }
-
-        /// <summary>
         /// Click event for briarheartBurgerButton. Opens briarheart burger customization screen when button is clicked.
         /// </summary>
         /// <param name="sender">Reference to the object that raised the event.</param>
         /// <param name="e">Contains the event data.</param>
         void OpenBriarheartBurgerCustomization(object sender, RoutedEventArgs e)
         {
-            var bbCustomization = new BriarheartBurgerCustomization();
+            var bbCustomization = new BriarheartBurgerCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            bbCustomization.DataContext = new BriarheartBurger();
+            BriarheartBurger bb = new BriarheartBurger();
+            ((Order)this.DataContext).Add(bb);
+            bbCustomization.DataContext = bb;
             fullComponentBorder.Child = bbCustomization;
         }
 
@@ -75,9 +58,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenDoubleDraugrCustomization(object sender, RoutedEventArgs e)
         {
-            var ddCustomization = new DoubleDraugrCustomization();
+            var ddCustomization = new DoubleDraugrCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            ddCustomization.DataContext = new DoubleDraugr();
+            DoubleDraugr dd = new DoubleDraugr();
+            ((Order)this.DataContext).Add(dd);
+            ddCustomization.DataContext = dd;
             fullComponentBorder.Child = ddCustomization;
         }
 
@@ -88,9 +73,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenThalmorTripleCustomization(object sender, RoutedEventArgs e)
         {
-            var ttCustomization = new ThalmorTripleCustomization();
+            var ttCustomization = new ThalmorTripleCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            ttCustomization.DataContext = new ThalmorTriple();
+            ThalmorTriple tt = new ThalmorTriple();
+            ((Order)this.DataContext).Add(tt);
+            ttCustomization.DataContext = tt;
             fullComponentBorder.Child = ttCustomization;
         }
 
@@ -101,9 +88,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenSmokehouseSkeletonCustomization(object sender, RoutedEventArgs e)
         {
-            var ssCustomization = new SmokehouseSkeletonCustomization();
+            var ssCustomization = new SmokehouseSkeletonCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            ssCustomization.DataContext = new SmokehouseSkeleton();
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            ((Order)this.DataContext).Add(ss);
+            ssCustomization.DataContext = ss;
             fullComponentBorder.Child = ssCustomization;
         }
 
@@ -114,9 +103,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenGardenOrcOmeletteCustomization(object sender, RoutedEventArgs e)
         {
-            var gooCustomization = new GardenOrcOmeletteCustomization();
+            var gooCustomization = new GardenOrcOmeletteCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            gooCustomization.DataContext = new GardenOrcOmelette();
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            ((Order)this.DataContext).Add(goo);
+            gooCustomization.DataContext = goo;
             fullComponentBorder.Child = gooCustomization;
         }
 
@@ -127,9 +118,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenThugsTBoneCustomization(object sender, RoutedEventArgs e)
         {
-            var ttbCustomization = new ThugsTBoneCustomization();
+            var ttbCustomization = new ThugsTBoneCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            ttbCustomization.DataContext = new ThugsTBone();
+            ThugsTBone ttb = new ThugsTBone();
+            ((Order)this.DataContext).Add(ttb);
+            ttbCustomization.DataContext = ttb;
             fullComponentBorder.Child = ttbCustomization;
         }
 
@@ -140,9 +133,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenPhillyPoacherCustomization(object sender, RoutedEventArgs e)
         {
-            var ppCustomization = new PhillyPoacherCustomization();
+            var ppCustomization = new PhillyPoacherCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            ppCustomization.DataContext = new PhillyPoacher();
+            PhillyPoacher pp = new PhillyPoacher();
+            ((Order)this.DataContext).Add(pp);
+            ppCustomization.DataContext = pp;
             fullComponentBorder.Child = ppCustomization;
         }
 
@@ -153,9 +148,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenSailorSodaCustomization(object sender, RoutedEventArgs e)
         {
-            var ssCustomization = new SailorSodaCustomization();
+            var ssCustomization = new SailorSodaCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            ssCustomization.DataContext = new SailorSoda();
+            SailorSoda ss = new SailorSoda();
+            ((Order)this.DataContext).Add(ss);
+            ssCustomization.DataContext = ss;
             fullComponentBorder.Child = ssCustomization;
         }
 
@@ -166,9 +163,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenMarkarthMilkCustomization(object sender, RoutedEventArgs e)
         {
-            var mmCustomization = new MarkarthMilkCustomization();
+            var mmCustomization = new MarkarthMilkCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            mmCustomization.DataContext = new MarkarthMilk();
+            MarkarthMilk mm = new MarkarthMilk();
+            ((Order)this.DataContext).Add(mm);
+            mmCustomization.DataContext = mm;
             fullComponentBorder.Child = mmCustomization;
         }
 
@@ -179,9 +178,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenAretinoAppleJuiceCustomization(object sender, RoutedEventArgs e)
         {
-            var ajCustomization = new AretinoAppleJuiceCustomization();
+            var ajCustomization = new AretinoAppleJuiceCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            ajCustomization.DataContext = new AretinoAppleJuice();
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            ((Order)this.DataContext).Add(aj);
+            ajCustomization.DataContext = aj;
             fullComponentBorder.Child = ajCustomization;
         }
 
@@ -192,9 +193,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenCandlehearthCoffeeCustomization(object sender, RoutedEventArgs e)
         {
-            var ccCustomization = new CandlehearthCoffeeCustomization();
+            var ccCustomization = new CandlehearthCoffeeCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            ccCustomization.DataContext = new CandlehearthCoffee();
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            ((Order)this.DataContext).Add(cc);
+            ccCustomization.DataContext = cc;
             fullComponentBorder.Child = ccCustomization;
         }
 
@@ -205,9 +208,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenWarriorWaterCustomization(object sender, RoutedEventArgs e)
         {
-            var wwCustomization = new WarriorWaterCustomization();
+            var wwCustomization = new WarriorWaterCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            wwCustomization.DataContext = new WarriorWater();
+            WarriorWater ww = new WarriorWater();
+            ((Order)this.DataContext).Add(ww);
+            wwCustomization.DataContext = ww;
             fullComponentBorder.Child = wwCustomization;
         }
 
@@ -218,9 +223,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenVokunSaladCustomization(object sender, RoutedEventArgs e)
         {
-            var vsCustomization = new VokunSaladCustomization();
+            var vsCustomization = new VokunSaladCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            vsCustomization.DataContext = new VokunSalad();
+            VokunSalad vs = new VokunSalad();
+            ((Order)this.DataContext).Add(vs);
+            vsCustomization.DataContext = vs;
             fullComponentBorder.Child = vsCustomization;
         }
 
@@ -231,9 +238,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenFriedMiraakCustomization(object sender, RoutedEventArgs e)
         {
-            var fmCustomization = new FriedMiraakCustomization();
+            var fmCustomization = new FriedMiraakCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            fmCustomization.DataContext = new FriedMiraak();
+            FriedMiraak fm = new FriedMiraak();
+            ((Order)this.DataContext).Add(fm);
+            fmCustomization.DataContext = fm;
             fullComponentBorder.Child = fmCustomization;
         }
 
@@ -244,9 +253,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenMadOtarGritsCustomization(object sender, RoutedEventArgs e)
         {
-            var mogCustomization = new MadOtarGritsCustomization();
+            var mogCustomization = new MadOtarGritsCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            mogCustomization.DataContext = new MadOtarGrits();
+            MadOtarGrits mog = new MadOtarGrits();
+            ((Order)this.DataContext).Add(mog);
+            mogCustomization.DataContext = mog;
             fullComponentBorder.Child = mogCustomization;
         }
 
@@ -257,9 +268,11 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenDragonbornWaffleFriesCustomization(object sender, RoutedEventArgs e)
         {
-            var dwfCustomization = new DragonbornWaffleFriesCustomization();
+            var dwfCustomization = new DragonbornWaffleFriesCustomization((Order)this.DataContext);
             fullMenuSelectionGrid.Children.Clear();
-            dwfCustomization.DataContext = new DragonbornWaffleFries();
+            DragonbornWaffleFries dwf = new DragonbornWaffleFries();
+            ((Order)this.DataContext).Add(dwf);
+            dwfCustomization.DataContext = dwf;
             fullComponentBorder.Child = dwfCustomization;
         }
     }

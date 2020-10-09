@@ -228,6 +228,30 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         /// <summary>
+        /// Tests if Sailor Soda notifies of Price change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfPriceChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Price", () => ss.Size = Size.Small);
+            Assert.PropertyChanged(ss, "Price", () => ss.Size = Size.Medium);
+            Assert.PropertyChanged(ss, "Price", () => ss.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Sailor Soda notifies of Calories change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfCaloriesChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Calories", () => ss.Size = Size.Small);
+            Assert.PropertyChanged(ss, "Calories", () => ss.Size = Size.Medium);
+            Assert.PropertyChanged(ss, "Calories", () => ss.Size = Size.Large);
+        }
+
+        /// <summary>
         /// Tests if Sailor Soda notifies of Ice change.
         /// </summary>
         [Fact]
@@ -251,6 +275,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(ss, "Flavor", () => ss.Flavor = SodaFlavor.Lemon);
             Assert.PropertyChanged(ss, "Flavor", () => ss.Flavor = SodaFlavor.Peach);
             Assert.PropertyChanged(ss, "Flavor", () => ss.Flavor = SodaFlavor.Watermelon);
+        }
+
+        /// <summary>
+        /// Tests if Sailor Soda notifies of Special Instructions change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSpecialInstructionsChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Ice = false);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Ice = true);
         }
     }
 }

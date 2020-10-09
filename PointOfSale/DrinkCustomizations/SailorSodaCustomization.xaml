@@ -35,39 +35,42 @@
                     Ice
                 </CheckBox>
             </StackPanel>
-            <!--Creates divided area for size and type selectors.-->
-            <Grid Grid.Row="1" Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <!--Group of radio buttons for size.-->
-                <StackPanel>
-                    <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Size" IsChecked="True">Small</RadioButton>
-                    <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Size">Medium</RadioButton>
-                    <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Size">Large</RadioButton>
-                </StackPanel>
-                
-                <!--Group of radio buttons for flavor.-->
-                <StackPanel Grid.Row="1">
-                    <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Flavor">Blackberry</RadioButton>
-                    <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Flavor" IsChecked="True">Cherry</RadioButton>
-                    <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Flavor">Grapefruit</RadioButton>
-                    <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Flavor">Lemon</RadioButton>
-                    <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Flavor">Peach</RadioButton>
-                    <RadioButton FontSize="40" FontWeight="Bold" VerticalContentAlignment="Center" GroupName="Flavor">Watermelon</RadioButton>
-                </StackPanel>
-                
-            </Grid>
-            <!--Creates the cancel button.-->
-            <Border Grid.Row="2" Grid.Column="1" BorderThickness="20">
-                <Button Click="CancelItemOrder" Name="cancelButton" FontSize="40" FontWeight="UltraBold">
-                    Cancel
-                </Button>
-            </Border>
+
+            <!--Group of buttons for size selection.-->
+            <StackPanel x:Name="sizes" Grid.Row="1" Grid.Column="2">
+                <Border BorderThickness="10">
+                    <Button Name="small" Click="SmallClicked" IsEnabled="False" FontSize="60" FontWeight="Bold" VerticalContentAlignment="Center">Small</Button>
+                </Border>
+                <Border BorderThickness="10">
+                    <Button Name="medium" Click="MediumClicked" FontSize="60" FontWeight="Bold" VerticalContentAlignment="Center">Medium</Button>
+                </Border>
+                <Border BorderThickness="10">
+                    <Button Name="large" Click="LargeClicked" FontSize="60" FontWeight="Bold" VerticalContentAlignment="Center">Large</Button>
+                </Border>
+            </StackPanel>
+
+            <!--Group of buttons for flavor.-->
+            <StackPanel Grid.Row="1">
+                <Border BorderThickness="10">
+                    <Button Name="blackberry" Click="BlackberryClicked" FontSize="60" FontWeight="Bold" VerticalContentAlignment="Center">Blackberry</Button>
+                </Border>
+                <Border BorderThickness="10">
+                    <Button Name="cherry" Click="CherryClicked" IsEnabled="false" FontSize="60" FontWeight="Bold" VerticalContentAlignment="Center">Cherry</Button>
+                </Border>
+                <Border BorderThickness="10">
+                    <Button Name="grapefruit" Click="GrapefruitClicked" FontSize="60" FontWeight="Bold" VerticalContentAlignment="Center">Grapefruit</Button>
+                </Border>
+                <Border BorderThickness="10">
+                    <Button Name="lemon" Click="LemonClicked" FontSize="60" FontWeight="Bold" VerticalContentAlignment="Center">Lemon</Button>
+                </Border>
+                <Border BorderThickness="10">
+                    <Button Name="peach" Click="PeachClicked" FontSize="60" FontWeight="Bold" VerticalContentAlignment="Center">Peach</Button>
+                </Border>
+                <Border BorderThickness="10">
+                    <Button Name="watermelon" Click="WatermelonClicked" FontSize="60" FontWeight="Bold" VerticalContentAlignment="Center">Watermelon</Button>
+                </Border>
+            </StackPanel>
+            
             <!--Creates the next button.-->
             <Border Grid.Row="2" Grid.Column="2" BorderThickness="20">
                 <Button Click="NextItemOrder" Name="nextButton" FontSize="40" FontWeight="UltraBold">

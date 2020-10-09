@@ -465,5 +465,34 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(tt, "Egg", () => tt.Egg = false);
             Assert.PropertyChanged(tt, "Egg", () => tt.Egg = true);
         }
+
+        /// <summary>
+        /// Tests if Thalmor Triple notifies of Special Instructions change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSpecialInstructionsChange()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Bun = false);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Bun = true);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Ketchup = false);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Ketchup = true);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Mustard = false);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Mustard = true);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Pickle = false);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Pickle = true);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Cheese = false);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Cheese = true);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Tomato = false);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Tomato = true);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Lettuce = false);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Lettuce = true);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Mayo = false);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Mayo = true);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Bacon = false);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Bacon = true);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Egg = false);
+            Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Egg = true);
+        }
     }
 }

@@ -240,5 +240,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(ss, "Pancake", () => ss.Pancake = false);
             Assert.PropertyChanged(ss, "Pancake", () => ss.Pancake = true);
         }
+
+        /// <summary>
+        /// Tests if Smokehouse Skeleton notifies of Special Instructions change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSpecialInstructionsChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.SausageLink = false);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.SausageLink = true);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Egg = false);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Egg = true);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.HashBrowns = false);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.HashBrowns = true);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Pancake = false);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Pancake = true);
+        }
     }
 }

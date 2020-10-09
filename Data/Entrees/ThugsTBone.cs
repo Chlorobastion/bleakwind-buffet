@@ -15,6 +15,17 @@ namespace BleakwindBuffet.Data.Entrees
     public class ThugsTBone : Entree, INotifyPropertyChanged
     {
         /// <summary>
+        /// Getter for name of item.
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return ToString();
+            }
+        }
+
+        /// <summary>
         /// Event triggered when a property changes
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;

@@ -203,5 +203,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(pp, "Roll", () => pp.Roll = false);
             Assert.PropertyChanged(pp, "Roll", () => pp.Roll = true);
         }
+
+        /// <summary>
+        /// Tests if Philly Poacher notifies of Special Instructions change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSpecialInstructionsChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "SpecialInstructions", () => pp.Sirloin = false);
+            Assert.PropertyChanged(pp, "SpecialInstructions", () => pp.Sirloin = true);
+            Assert.PropertyChanged(pp, "SpecialInstructions", () => pp.Onion = false);
+            Assert.PropertyChanged(pp, "SpecialInstructions", () => pp.Onion = true);
+            Assert.PropertyChanged(pp, "SpecialInstructions", () => pp.Roll = false);
+            Assert.PropertyChanged(pp, "SpecialInstructions", () => pp.Roll = true);
+        }
     }
 }

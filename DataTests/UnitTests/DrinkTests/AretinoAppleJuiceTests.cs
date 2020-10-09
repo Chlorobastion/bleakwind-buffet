@@ -172,6 +172,30 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         /// <summary>
+        /// Tests if Aretino Apple Juice notifies of Price change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfPriceChange()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Price", () => aj.Size = Size.Small);
+            Assert.PropertyChanged(aj, "Price", () => aj.Size = Size.Medium);
+            Assert.PropertyChanged(aj, "Price", () => aj.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Aretino Apple Juice notifies of Calories change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfCaloriesChange()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Calories", () => aj.Size = Size.Small);
+            Assert.PropertyChanged(aj, "Calories", () => aj.Size = Size.Medium);
+            Assert.PropertyChanged(aj, "Calories", () => aj.Size = Size.Large);
+        }
+
+        /// <summary>
         /// Tests if Aretino Apple Juice notifies of Ice change.
         /// </summary>
         [Fact]
@@ -180,6 +204,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice aj = new AretinoAppleJuice();
             Assert.PropertyChanged(aj, "Ice", () => aj.Ice = false);
             Assert.PropertyChanged(aj, "Ice", () => aj.Ice = true);
+        }
+
+        /// <summary>
+        /// Tests if Aretino Apple Juice notifies of SpecialInstructions change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSpecialInstructionsChange()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "SpecialInstructions", () => aj.Ice = false);
+            Assert.PropertyChanged(aj, "SpecialInstructions", () => aj.Ice = true);
         }
     }
 }

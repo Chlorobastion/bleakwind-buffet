@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
 
 namespace PointOfSale
 {
@@ -25,23 +27,18 @@ namespace PointOfSale
     public partial class SailorSodaCustomization : UserControl
     {
         /// <summary>
-        /// Initializes the sailor soda customization component in the main window.
+        /// Private variable to hold onto current order information.
         /// </summary>
-        public SailorSodaCustomization()
-        {
-            InitializeComponent();
-        }
+        private Order currentOrder;
 
         /// <summary>
-        /// Click event for cancelButton. Closes customization menu without further action when button is clicked.
+        /// Initializes the sailor soda customization component in the main window.
         /// </summary>
-        /// <param name="sender">Reference to the object that raised the event.</param>
-        /// <param name="e">Contains the event data.</param>
-        void CancelItemOrder(object sender, RoutedEventArgs e)
+        /// <param name="currOrder">The current order that must be maintained.</param>
+        public SailorSodaCustomization(Order currOrder)
         {
-            var menu = new MenuSelectionComponent();
-            fullCustomizationGrid.Children.Clear();
-            fullComponentBorder.Child = menu;
+            InitializeComponent();
+            currentOrder = currOrder;
         }
 
         /// <summary>
@@ -53,12 +50,144 @@ namespace PointOfSale
         {
 
             var menu = new MenuSelectionComponent();
+            menu.DataContext = currentOrder;
             fullCustomizationGrid.Children.Clear();
             fullComponentBorder.Child = menu;
         }
 
+        /// <summary>
+        /// Selects the size of the item to be small.
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void SmallClicked(object sender, RoutedEventArgs e)
+        {
+            ((SailorSoda)this.DataContext).Size = BleakwindBuffet.Data.Enums.Size.Small;
+            small.IsEnabled = false;
+            medium.IsEnabled = true;
+            large.IsEnabled = true;
+        }
 
+        /// <summary>
+        /// Selects the size of the item to be medium.
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void MediumClicked(object sender, RoutedEventArgs e)
+        {
+            ((SailorSoda)this.DataContext).Size = BleakwindBuffet.Data.Enums.Size.Medium;
+            small.IsEnabled = true;
+            medium.IsEnabled = false;
+            large.IsEnabled = true;
+        }
 
+        /// <summary>
+        /// Selects the size of the item to be large.
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void LargeClicked(object sender, RoutedEventArgs e)
+        {
+            ((SailorSoda)this.DataContext).Size = BleakwindBuffet.Data.Enums.Size.Large;
+            small.IsEnabled = true;
+            medium.IsEnabled = true;
+            large.IsEnabled = false;
+        }
 
+        /// <summary>
+        /// Selects the soda flavor of the item to be blackberry.
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void BlackberryClicked(object sender, RoutedEventArgs e)
+        {
+            ((SailorSoda)this.DataContext).Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry;
+            blackberry.IsEnabled = false;
+            cherry.IsEnabled = true;
+            grapefruit.IsEnabled = true;
+            lemon.IsEnabled = true;
+            peach.IsEnabled = true;
+            watermelon.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Selects the soda flavor of the item to be cherry.
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void CherryClicked(object sender, RoutedEventArgs e)
+        {
+            ((SailorSoda)this.DataContext).Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Cherry;
+            blackberry.IsEnabled = true;
+            cherry.IsEnabled = false;
+            grapefruit.IsEnabled = true;
+            lemon.IsEnabled = true;
+            peach.IsEnabled = true;
+            watermelon.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Selects the soda flavor of the item to be grapefruit.
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void GrapefruitClicked(object sender, RoutedEventArgs e)
+        {
+            ((SailorSoda)this.DataContext).Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit;
+            blackberry.IsEnabled = true;
+            cherry.IsEnabled = true;
+            grapefruit.IsEnabled = false;
+            lemon.IsEnabled = true;
+            peach.IsEnabled = true;
+            watermelon.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Selects the soda flavor of the item to be lemon.
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void LemonClicked(object sender, RoutedEventArgs e)
+        {
+            ((SailorSoda)this.DataContext).Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Lemon;
+            blackberry.IsEnabled = true;
+            cherry.IsEnabled = true;
+            grapefruit.IsEnabled = true;
+            lemon.IsEnabled = false;
+            peach.IsEnabled = true;
+            watermelon.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Selects the soda flavor of the item to be peach.
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void PeachClicked(object sender, RoutedEventArgs e)
+        {
+            ((SailorSoda)this.DataContext).Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Peach;
+            blackberry.IsEnabled = true;
+            cherry.IsEnabled = true;
+            grapefruit.IsEnabled = true;
+            lemon.IsEnabled = true;
+            peach.IsEnabled = false;
+            watermelon.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Selects the soda flavor of the item to be watermelon.
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void WatermelonClicked(object sender, RoutedEventArgs e)
+        {
+            ((SailorSoda)this.DataContext).Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon;
+            blackberry.IsEnabled = true;
+            cherry.IsEnabled = true;
+            grapefruit.IsEnabled = true;
+            lemon.IsEnabled = true;
+            peach.IsEnabled = true;
+            watermelon.IsEnabled = false;
+        }
     }
 }

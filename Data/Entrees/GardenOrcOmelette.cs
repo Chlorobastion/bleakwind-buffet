@@ -14,6 +14,17 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class GardenOrcOmelette : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Getter for name of item.
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return ToString();
+            }
+        }
+
         /// <value>
         /// Whether broccoli is desired (default true).
         /// </value>
@@ -46,6 +57,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 broccoli = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -59,6 +71,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 mushrooms = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -72,6 +85,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 tomato = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -85,6 +99,7 @@ namespace BleakwindBuffet.Data.Entrees
             { 
                 cheddar = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

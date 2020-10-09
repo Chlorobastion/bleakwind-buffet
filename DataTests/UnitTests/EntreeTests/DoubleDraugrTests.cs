@@ -390,5 +390,30 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(dd, "Mayo", () => dd.Mayo = false);
             Assert.PropertyChanged(dd, "Mayo", () => dd.Mayo = true);
         }
+
+        /// <summary>
+        /// Tests if Double Draugr notifies of Special Instructions change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSpecialInstructionsChange()
+        {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Bun = false);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Bun = true);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Ketchup = false);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Ketchup = true);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Mustard = false);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Mustard = true);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Pickle = false);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Pickle = true);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Cheese = false);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Cheese = true);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Tomato = false);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Tomato = true);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Lettuce = false);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Lettuce = true);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Mayo = false);
+            Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Mayo = true);
+        }
     }
 }

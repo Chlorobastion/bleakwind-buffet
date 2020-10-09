@@ -42,18 +42,6 @@
             <TextBlock Grid.Column="2" Grid.Row="1" FontSize="60" FontWeight="Bold" TextAlignment="Center" Foreground="DarkRed">
             Sides
             </TextBlock>
-            <!--Button to cancel total order.-->
-            <Border Grid.Column ="0" Grid.Row="0" BorderThickness="8">
-                <Button Click="CancelOrder" Name="cancelButton" FontSize="40">
-                    Cancel Order
-                </Button>
-            </Border>
-            <!--Button to finish total order.-->
-            <Border Grid.Column ="2" Grid.Row="0" BorderThickness="8">
-                <Button Click="FinishOrder" Name="finishButton" FontSize="40">
-                    Finish Order
-                </Button>
-            </Border>
             <!--Button to open briarheart burger customization.-->
             <Border Grid.Column ="0" Grid.Row="2" BorderThickness="8">
                 <Button Click="OpenBriarheartBurgerCustomization" Name="briarheartBurgerButton" FontSize="40">

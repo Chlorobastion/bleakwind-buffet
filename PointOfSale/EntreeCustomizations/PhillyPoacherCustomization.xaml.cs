@@ -4,6 +4,7 @@
  * Purpose: Partial class for the philly poacher customization page of the Bleakwind Buffet Point of Sale.
  */
 
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,23 +26,18 @@ namespace PointOfSale
     public partial class PhillyPoacherCustomization : UserControl
     {
         /// <summary>
-        /// Initializes the philly poacher customization component in the main window.
+        /// Private variable to hold onto current order information.
         /// </summary>
-        public PhillyPoacherCustomization()
-        {
-            InitializeComponent();
-        }
+        private Order currentOrder;
 
         /// <summary>
-        /// Click event for cancelButton. Closes customization menu without further action when button is clicked.
+        /// Initializes the philly poacher customization component in the main window.
         /// </summary>
-        /// <param name="sender">Reference to the object that raised the event.</param>
-        /// <param name="e">Contains the event data.</param>
-        void CancelItemOrder(object sender, RoutedEventArgs e)
+        /// <param name="currOrder">The current order that must be maintained.</param>
+        public PhillyPoacherCustomization(Order currOrder)
         {
-            var menu = new MenuSelectionComponent();
-            fullCustomizationGrid.Children.Clear();
-            fullComponentBorder.Child = menu;
+            InitializeComponent();
+            currentOrder = currOrder;
         }
 
         /// <summary>
@@ -51,14 +47,10 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void NextItemOrder(object sender, RoutedEventArgs e)
         {
-
             var menu = new MenuSelectionComponent();
+            menu.DataContext = currentOrder;
             fullCustomizationGrid.Children.Clear();
             fullComponentBorder.Child = menu;
         }
-
-
-
-
     }
 }

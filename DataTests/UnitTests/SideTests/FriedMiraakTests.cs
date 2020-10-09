@@ -143,5 +143,29 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.PropertyChanged(fm, "Size", () => fm.Size = Size.Medium);
             Assert.PropertyChanged(fm, "Size", () => fm.Size = Size.Large);
         }
+
+        /// <summary>
+        /// Tests if Fried Miraak notifies of Price change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfPriceChange()
+        {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.PropertyChanged(fm, "Price", () => fm.Size = Size.Small);
+            Assert.PropertyChanged(fm, "Price", () => fm.Size = Size.Medium);
+            Assert.PropertyChanged(fm, "Price", () => fm.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Fried Miraak notifies of Calories change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfCaloriesChange()
+        {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.PropertyChanged(fm, "Calories", () => fm.Size = Size.Small);
+            Assert.PropertyChanged(fm, "Calories", () => fm.Size = Size.Medium);
+            Assert.PropertyChanged(fm, "Calories", () => fm.Size = Size.Large);
+        }
     }
 }

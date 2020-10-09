@@ -173,6 +173,30 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         /// <summary>
+        /// Tests if Markarth Milk notifies of Size change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfPriceChange()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "Price", () => mm.Size = Size.Small);
+            Assert.PropertyChanged(mm, "Price", () => mm.Size = Size.Medium);
+            Assert.PropertyChanged(mm, "Price", () => mm.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Markarth Milk notifies of Size change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfCaloriesChange()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "Calories", () => mm.Size = Size.Small);
+            Assert.PropertyChanged(mm, "Calories", () => mm.Size = Size.Medium);
+            Assert.PropertyChanged(mm, "Calories", () => mm.Size = Size.Large);
+        }
+
+        /// <summary>
         /// Tests if Markarth Milk notifies of Ice change.
         /// </summary>
         [Fact]
@@ -181,6 +205,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             MarkarthMilk mm = new MarkarthMilk();
             Assert.PropertyChanged(mm, "Ice", () => mm.Ice = false);
             Assert.PropertyChanged(mm, "Ice", () => mm.Ice = true);
+        }
+
+        /// <summary>
+        /// Tests if Markarth Milk notifies of Special Instructions change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfSpecialInstructionsChange()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "SpecialInstructions", () => mm.Ice = false);
+            Assert.PropertyChanged(mm, "SpecialInstructions", () => mm.Ice = true);
         }
     }
 }

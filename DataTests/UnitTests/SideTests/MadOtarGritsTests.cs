@@ -142,5 +142,29 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.PropertyChanged(mog, "Size", () => mog.Size = Size.Medium);
             Assert.PropertyChanged(mog, "Size", () => mog.Size = Size.Large);
         }
+
+        /// <summary>
+        /// Tests if Mad Otar Grits notifies of Price change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfPriceChange()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.PropertyChanged(mog, "Price", () => mog.Size = Size.Small);
+            Assert.PropertyChanged(mog, "Price", () => mog.Size = Size.Medium);
+            Assert.PropertyChanged(mog, "Price", () => mog.Size = Size.Large);
+        }
+
+        /// <summary>
+        /// Tests if Mad Otar Grits notifies of Calories change.
+        /// </summary>
+        [Fact]
+        public void ShouldNotifyOfCaloriesChange()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.PropertyChanged(mog, "Calories", () => mog.Size = Size.Small);
+            Assert.PropertyChanged(mog, "Calories", () => mog.Size = Size.Medium);
+            Assert.PropertyChanged(mog, "Calories", () => mog.Size = Size.Large);
+        }
     }
 }
