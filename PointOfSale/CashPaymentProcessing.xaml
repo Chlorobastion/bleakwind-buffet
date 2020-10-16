@@ -1,0 +1,264 @@
+﻿<UserControl x:Class="PointOfSale.CashPaymentProcessing"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1440">
+    <Border Name="fullComponentBorder" Grid.ColumnSpan="3" Grid.RowSpan="10" Background="DarkGray">
+        <!--Configure entire grid.-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--Return to order button-->
+            <Border Grid.Column="9" Grid.ColumnSpan="2" BorderThickness="5">
+                <Button Name="returnButton" Click="ReturnToOrder">
+                    <TextBlock FontSize="30" TextWrapping="Wrap" HorizontalAlignment="Center">
+                    Return to Order
+                    </TextBlock>
+                </Button>
+            </Border>
+            <!--Finish order button-->
+            <Border Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="2" BorderThickness="5">
+                <Button Name="finishButton" Click="FinishOrder">
+                    <TextBlock FontSize="30" TextWrapping="Wrap" HorizontalAlignment="Center">
+                    Finish Order
+                    </TextBlock>
+                </Button>
+            </Border>
+            <!--Label for total sale.-->
+            <TextBlock Grid.Row="9" FontSize="30" FontWeight="Bold" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center">Total Sale:</TextBlock>
+            <!--Total price of the order.-->
+            <TextBlock Grid.Row="9" Grid.Column="1" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=OrderPrice, StringFormat=N2}"/>
+            <!--Label for amount due.-->
+            <TextBlock Grid.Row="9" Grid.Column="3" FontSize="30" FontWeight="Bold" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center">Amount Due:</TextBlock>
+            <!--Amount still due in the order.-->
+            <TextBlock Grid.Row="9" Grid.Column="4" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=AmountDue, StringFormat=N2}"/>
+            <!--Label for change owed.-->
+            <TextBlock Grid.Row="9" Grid.Column="6" FontSize="30" FontWeight="Bold" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center">Change Owed:</TextBlock>
+            <!--Change owed to the customer.-->
+            <TextBlock Grid.Row="9" Grid.Column="7" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=TotalChange, StringFormat=N2}"/>
+            
+            <!--Label for pennies.-->
+            <TextBlock Grid.Row="7" Grid.Column="6" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">1¢</TextBlock>
+            <!--Button to increment currency quantity.-->
+            <Button Grid.Row="7" Grid.Column="7" FontSize="40" Click="ClickPenniesIncrement">
+                +
+            </Button>
+            <!--Button to decrement penny quantity.-->
+            <Button Grid.Row="7" Grid.Column="9" FontSize="40" Click="ClickPenniesDecrement">
+                -
+            </Button>
+            <!--Displays the current penny quantity given by customer.-->
+            <TextBlock Grid.Row="7" Grid.Column="8" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerPennies}"/>
+            <!--Displays the current penny change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="7" Grid.Column="10" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangePennies}"/>
+
+            <!--Label for nickels.-->
+            <TextBlock Grid.Row="6" Grid.Column="6" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">5¢</TextBlock>
+            <!--Button to increment nickel quantity.-->
+            <Button Grid.Row="6" Grid.Column="7" FontSize="40" Click="ClickNickelsIncrement">
+                +
+            </Button>
+            <!--Button to decrement nickel quantity.-->
+            <Button Grid.Row="6" Grid.Column="9" FontSize="40" Click="ClickNickelsDecrement">
+                -
+            </Button>
+            <!--Displays the current nickel quantity given by customer.-->
+            <TextBlock Grid.Row="6" Grid.Column="8" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerNickels}"/>
+            <!--Displays the current nickel change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="6" Grid.Column="10" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeNickels}"/>
+
+            <!--Label for dimes.-->
+            <TextBlock Grid.Row="5" Grid.Column="6" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">10¢</TextBlock>
+            <!--Button to increment dime quantity.-->
+            <Button Grid.Row="5" Grid.Column="7" FontSize="40" Click="ClickDimesIncrement">
+                +
+            </Button>
+            <!--Button to decrement dime quantity.-->
+            <Button Grid.Row="5" Grid.Column="9" FontSize="40" Click="ClickDimesDecrement">
+                -
+            </Button>
+            <!--Displays the current dime quantity given by customer.-->
+            <TextBlock Grid.Row="5" Grid.Column="8" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerDimes}"/>
+            <!--Displays the current dime change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="5" Grid.Column="10" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeDimes}"/>
+
+            <!--Label for quarters.-->
+            <TextBlock Grid.Row="4" Grid.Column="6" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">25¢</TextBlock>
+            <!--Button to increment quarter quantity.-->
+            <Button Grid.Row="4" Grid.Column="7" FontSize="40" Click="ClickQuartersIncrement">
+                +
+            </Button>
+            <!--Button to decrement quarter quantity.-->
+            <Button Grid.Row="4" Grid.Column="9" FontSize="40" Click="ClickQuartersDecrement">
+                -
+            </Button>
+            <!--Displays the current quarter quantity given by customer.-->
+            <TextBlock Grid.Row="4" Grid.Column="8" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerQuarters}"/>
+            <!--Displays the current quarter change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="4" Grid.Column="10" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeQuarters}"/>
+
+            <!--Label for half dollar.-->
+            <TextBlock Grid.Row="3" Grid.Column="6" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">50¢</TextBlock>
+            <!--Button to increment half dollar quantity.-->
+            <Button Grid.Row="3" Grid.Column="7" FontSize="40" Click="ClickHalfDollarsIncrement">
+                +
+            </Button>
+            <!--Button to decrement half dollar quantity.-->
+            <Button Grid.Row="3" Grid.Column="9" FontSize="40" Click="ClickHalfDollarsDecrement">
+                -
+            </Button>
+            <!--Displays the current half dollar quantity given by customer.-->
+            <TextBlock Grid.Row="3" Grid.Column="8" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerHalfDollars}"/>
+            <!--Displays the current half dollar change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="3" Grid.Column="10" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeHalfDollars}"/>
+
+            <!--Label for dollars.-->
+            <TextBlock Grid.Row="2" Grid.Column="6" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">$1</TextBlock>
+            <!--Button to increment dollar quantity.-->
+            <Button Grid.Row="2" Grid.Column="7" FontSize="40" Click="ClickDollarsIncrement">
+                +
+            </Button>
+            <!--Button to decrement dollar quantity.-->
+            <Button Grid.Row="2" Grid.Column="9" FontSize="40" Click="ClickDollarsDecrement">
+                -
+            </Button>
+            <!--Displays the current dollar quantity given by customer.-->
+            <TextBlock Grid.Row="2" Grid.Column="8" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerDollars}"/>
+            <!--Displays the current dollar change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="2" Grid.Column="10" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeDollars}"/>
+
+
+            <!--Label for ones.-->
+            <TextBlock Grid.Row="7" Grid.Column="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">$1</TextBlock>
+            <!--Button to increment ones quantity.-->
+            <Button Grid.Row="7" Grid.Column="1" FontSize="40" Click="ClickOnesIncrement">
+                +
+            </Button>
+            <!--Button to decrement ones quantity.-->
+            <Button Grid.Row="7" Grid.Column="3" FontSize="40" Click="ClickOnesDecrement">
+                -
+            </Button>
+            <!--Displays the current ones quantity given by customer.-->
+            <TextBlock Grid.Row="7" Grid.Column="2" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerOnes}"/>
+            <!--Displays the current ones change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="7" Grid.Column="4" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeOnes}"/>
+
+            <!--Label for twos.-->
+            <TextBlock Grid.Row="6" Grid.Column="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">$2</TextBlock>
+            <!--Button to increment twos quantity.-->
+            <Button Grid.Row="6" Grid.Column="1" FontSize="40" Click="ClickTwosIncrement">
+                +
+            </Button>
+            <!--Button to decrement twos quantity.-->
+            <Button Grid.Row="6" Grid.Column="3" FontSize="40" Click="ClickTwosDecrement">
+                -
+            </Button>
+            <!--Displays the current twos quantity given by customer.-->
+            <TextBlock Grid.Row="6" Grid.Column="2" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerTwos}"/>
+            <!--Displays the current twos change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="6" Grid.Column="4" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeTwos}"/>
+
+            <!--Label for fives.-->
+            <TextBlock Grid.Row="5" Grid.Column="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">$5</TextBlock>
+            <!--Button to increment fives quantity.-->
+            <Button Grid.Row="5" Grid.Column="1" FontSize="40" Click="ClickFivesIncrement">
+                +
+            </Button>
+            <!--Button to decrement fives quantity.-->
+            <Button Grid.Row="5" Grid.Column="3" FontSize="40" Click="ClickFivesDecrement">
+                -
+            </Button>
+            <!--Displays the current fives quantity given by customer.-->
+            <TextBlock Grid.Row="5" Grid.Column="2" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerFives}"/>
+            <!--Displays the current fives change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="5" Grid.Column="4" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeFives}"/>
+
+            <!--Label for tens.-->
+            <TextBlock Grid.Row="4" Grid.Column="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">$10</TextBlock>
+            <!--Button to increment tens quantity.-->
+            <Button Grid.Row="4" Grid.Column="1" FontSize="40" Click="ClickTensIncrement">
+                +
+            </Button>
+            <!--Button to decrement tens quantity.-->
+            <Button Grid.Row="4" Grid.Column="3" FontSize="40" Click="ClickTensDecrement">
+                -
+            </Button>
+            <!--Displays the current tens quantity given by customer.-->
+            <TextBlock Grid.Row="4" Grid.Column="2" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerTens}"/>
+            <!--Displays the current tens change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="4" Grid.Column="4" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeTens}"/>
+
+            <!--Label for twenties.-->
+            <TextBlock Grid.Row="3" Grid.Column="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">$20</TextBlock>
+            <!--Button to increment twenties quantity.-->
+            <Button Grid.Row="3" Grid.Column="1" FontSize="40" Click="ClickTwentiesIncrement">
+                +
+            </Button>
+            <!--Button to decrement twenties quantity.-->
+            <Button Grid.Row="3" Grid.Column="3" FontSize="40" Click="ClickTwentiesDecrement">
+                -
+            </Button>
+            <!--Displays the current twenties quantity given by customer.-->
+            <TextBlock Grid.Row="3" Grid.Column="2" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerTwenties}"/>
+            <!--Displays the current twenties change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="3" Grid.Column="4" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeTwenties}"/>
+
+            <!--Label for fifties.-->
+            <TextBlock Grid.Row="2" Grid.Column="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">$50</TextBlock>
+            <!--Button to increment fifties quantity.-->
+            <Button Grid.Row="2" Grid.Column="1" FontSize="40" Click="ClickFiftiesIncrement">
+                +
+            </Button>
+            <!--Button to decrement fifties quantity.-->
+            <Button Grid.Row="2" Grid.Column="3" FontSize="40" Click="ClickFiftiesDecrement">
+                -
+            </Button>
+            <!--Displays the current fifties quantity given by customer.-->
+            <TextBlock Grid.Row="2" Grid.Column="2" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerFifties}"/>
+            <!--Displays the current fifties change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="2" Grid.Column="4" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeFifties}"/>
+
+            <!--Label for hundreds.-->
+            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">$100</TextBlock>
+            <!--Button to increment hundreds quantity.-->
+            <Button Grid.Row="1" Grid.Column="1" FontSize="40" Click="ClickHundredsIncrement">
+                +
+            </Button>
+            <!--Button to decrement hundreds quantity.-->
+            <Button Grid.Row="1" Grid.Column="3" FontSize="40" Click="ClickHundredsDecrement">
+                -
+            </Button>
+            <!--Displays the current hundreds quantity given by customer.-->
+            <TextBlock Grid.Row="1" Grid.Column="2" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=CustomerHundreds}"/>
+            <!--Displays the current hundreds change quantity needed to be given to customer.-->
+            <TextBlock Grid.Row="1" Grid.Column="4" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeHundreds}"/>
+
+        </Grid>
+    </Border>
+</UserControl>

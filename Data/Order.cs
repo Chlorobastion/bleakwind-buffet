@@ -275,7 +275,7 @@ namespace BleakwindBuffet.Data
         {
             get
             {
-                tax = subtotal * salesTaxRate;
+                tax = Subtotal * salesTaxRate;
                 tax = Math.Round(tax, 2);
                 return tax;
             }
@@ -293,7 +293,7 @@ namespace BleakwindBuffet.Data
         {
             get
             {
-                total = subtotal + tax;
+                total = Subtotal + Tax;
                 total = Math.Round(total, 2);
                 return total;
             }

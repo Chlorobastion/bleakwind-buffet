@@ -21,4 +21,10 @@
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="RoundRegister">
+      <HintPath>..\PointOfSale\bin\Debug\netcoreapp3.1\RoundRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

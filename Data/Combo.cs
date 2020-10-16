@@ -25,6 +25,16 @@ namespace BleakwindBuffet.Data
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
+        /// Getter for name of item.
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return "Combo Meal";
+            }
+        }
+        /// <summary>
         /// Private backing variable for the entree in this combo.
         /// </summary>
         private Entree entree = null;
@@ -302,29 +312,50 @@ namespace BleakwindBuffet.Data
             get 
             {
                 List<string> comboInstructions = new List<string>();
-                comboInstructions.Add(entree.ToString());
-                if (entree.SpecialInstructions != null)
+                if (entree != null)
                 {
-                    foreach (string instruction in entree.SpecialInstructions)
+                    comboInstructions.Add(entree.ToString());
+                    if (entree.SpecialInstructions != null)
                     {
-                        comboInstructions.Add(instruction);
+                        foreach (string instruction in entree.SpecialInstructions)
+                        {
+                            comboInstructions.Add("-" + instruction);
+                        }
                     }
                 }
-                comboInstructions.Add(side.ToString());
-                if (side.SpecialInstructions != null)
+                else
                 {
-                    foreach (string instruction in side.SpecialInstructions)
+                    comboInstructions.Add("Add entree");
+                }
+                if (side != null)
+                {
+                    comboInstructions.Add(side.ToString());
+                    if (side.SpecialInstructions != null)
                     {
-                        comboInstructions.Add(instruction);
+                        foreach (string instruction in side.SpecialInstructions)
+                        {
+                            comboInstructions.Add("-" + instruction);
+                        }
                     }
                 }
-                comboInstructions.Add(drink.ToString());
-                if (drink.SpecialInstructions != null)
+                else
                 {
-                    foreach (string instruction in drink.SpecialInstructions)
+                    comboInstructions.Add("Add side");
+                }
+                if (drink != null)
+                {
+                    comboInstructions.Add(drink.ToString());
+                    if (drink.SpecialInstructions != null)
                     {
-                        comboInstructions.Add(instruction);
+                        foreach (string instruction in drink.SpecialInstructions)
+                        {
+                            comboInstructions.Add("-" + instruction);
+                        }
                     }
+                }
+                else
+                {
+                    comboInstructions.Add("Add drink");
                 }
                 return comboInstructions;
             }
@@ -339,6 +370,7 @@ namespace BleakwindBuffet.Data
         /// <param name="e">Information about the event raised.</param>
         void ItemPropertyChangedListener(object sender, PropertyChangedEventArgs e)
         {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             switch (e.PropertyName)
             {
                 case "Price":
@@ -346,9 +378,6 @@ namespace BleakwindBuffet.Data
                     break;
                 case "Calories":
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                    break;
-                case "SpecialInstructions":
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                     break;
             }
         }

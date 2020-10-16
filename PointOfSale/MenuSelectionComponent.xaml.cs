@@ -20,6 +20,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data;
+using System.Windows.Automation;
 
 namespace PointOfSale
 {
@@ -37,13 +38,28 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Click event for comboButton. Opens combo customization screen when button is clicked.
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void OpenComboCustomization(object sender, RoutedEventArgs e)
+        {
+            var coCustomization = new ComboCustomization((Order)this.DataContext);
+            fullMenuSelectionGrid.Children.Clear();
+            Combo co = new Combo();
+            ((Order)this.DataContext).Add(co);
+            coCustomization.DataContext = co;
+            fullComponentBorder.Child = coCustomization;
+        }
+
+        /// <summary>
         /// Click event for briarheartBurgerButton. Opens briarheart burger customization screen when button is clicked.
         /// </summary>
         /// <param name="sender">Reference to the object that raised the event.</param>
         /// <param name="e">Contains the event data.</param>
         void OpenBriarheartBurgerCustomization(object sender, RoutedEventArgs e)
         {
-            var bbCustomization = new BriarheartBurgerCustomization((Order)this.DataContext);
+            var bbCustomization = new BriarheartBurgerCustomization((Order)this.DataContext, false, new Combo());
             fullMenuSelectionGrid.Children.Clear();
             BriarheartBurger bb = new BriarheartBurger();
             ((Order)this.DataContext).Add(bb);
@@ -58,7 +74,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenDoubleDraugrCustomization(object sender, RoutedEventArgs e)
         {
-            var ddCustomization = new DoubleDraugrCustomization((Order)this.DataContext);
+            var ddCustomization = new DoubleDraugrCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             DoubleDraugr dd = new DoubleDraugr();
             ((Order)this.DataContext).Add(dd);
@@ -73,7 +89,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenThalmorTripleCustomization(object sender, RoutedEventArgs e)
         {
-            var ttCustomization = new ThalmorTripleCustomization((Order)this.DataContext);
+            var ttCustomization = new ThalmorTripleCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             ThalmorTriple tt = new ThalmorTriple();
             ((Order)this.DataContext).Add(tt);
@@ -88,7 +104,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenSmokehouseSkeletonCustomization(object sender, RoutedEventArgs e)
         {
-            var ssCustomization = new SmokehouseSkeletonCustomization((Order)this.DataContext);
+            var ssCustomization = new SmokehouseSkeletonCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             ((Order)this.DataContext).Add(ss);
@@ -103,7 +119,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenGardenOrcOmeletteCustomization(object sender, RoutedEventArgs e)
         {
-            var gooCustomization = new GardenOrcOmeletteCustomization((Order)this.DataContext);
+            var gooCustomization = new GardenOrcOmeletteCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             GardenOrcOmelette goo = new GardenOrcOmelette();
             ((Order)this.DataContext).Add(goo);
@@ -118,7 +134,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenThugsTBoneCustomization(object sender, RoutedEventArgs e)
         {
-            var ttbCustomization = new ThugsTBoneCustomization((Order)this.DataContext);
+            var ttbCustomization = new ThugsTBoneCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             ThugsTBone ttb = new ThugsTBone();
             ((Order)this.DataContext).Add(ttb);
@@ -133,7 +149,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenPhillyPoacherCustomization(object sender, RoutedEventArgs e)
         {
-            var ppCustomization = new PhillyPoacherCustomization((Order)this.DataContext);
+            var ppCustomization = new PhillyPoacherCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             PhillyPoacher pp = new PhillyPoacher();
             ((Order)this.DataContext).Add(pp);
@@ -148,7 +164,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenSailorSodaCustomization(object sender, RoutedEventArgs e)
         {
-            var ssCustomization = new SailorSodaCustomization((Order)this.DataContext);
+            var ssCustomization = new SailorSodaCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             SailorSoda ss = new SailorSoda();
             ((Order)this.DataContext).Add(ss);
@@ -163,7 +179,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenMarkarthMilkCustomization(object sender, RoutedEventArgs e)
         {
-            var mmCustomization = new MarkarthMilkCustomization((Order)this.DataContext);
+            var mmCustomization = new MarkarthMilkCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             MarkarthMilk mm = new MarkarthMilk();
             ((Order)this.DataContext).Add(mm);
@@ -178,7 +194,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenAretinoAppleJuiceCustomization(object sender, RoutedEventArgs e)
         {
-            var ajCustomization = new AretinoAppleJuiceCustomization((Order)this.DataContext);
+            var ajCustomization = new AretinoAppleJuiceCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             AretinoAppleJuice aj = new AretinoAppleJuice();
             ((Order)this.DataContext).Add(aj);
@@ -193,7 +209,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenCandlehearthCoffeeCustomization(object sender, RoutedEventArgs e)
         {
-            var ccCustomization = new CandlehearthCoffeeCustomization((Order)this.DataContext);
+            var ccCustomization = new CandlehearthCoffeeCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             CandlehearthCoffee cc = new CandlehearthCoffee();
             ((Order)this.DataContext).Add(cc);
@@ -208,7 +224,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenWarriorWaterCustomization(object sender, RoutedEventArgs e)
         {
-            var wwCustomization = new WarriorWaterCustomization((Order)this.DataContext);
+            var wwCustomization = new WarriorWaterCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             WarriorWater ww = new WarriorWater();
             ((Order)this.DataContext).Add(ww);
@@ -223,7 +239,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenVokunSaladCustomization(object sender, RoutedEventArgs e)
         {
-            var vsCustomization = new VokunSaladCustomization((Order)this.DataContext);
+            var vsCustomization = new VokunSaladCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             VokunSalad vs = new VokunSalad();
             ((Order)this.DataContext).Add(vs);
@@ -238,7 +254,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenFriedMiraakCustomization(object sender, RoutedEventArgs e)
         {
-            var fmCustomization = new FriedMiraakCustomization((Order)this.DataContext);
+            var fmCustomization = new FriedMiraakCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             FriedMiraak fm = new FriedMiraak();
             ((Order)this.DataContext).Add(fm);
@@ -253,7 +269,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenMadOtarGritsCustomization(object sender, RoutedEventArgs e)
         {
-            var mogCustomization = new MadOtarGritsCustomization((Order)this.DataContext);
+            var mogCustomization = new MadOtarGritsCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             MadOtarGrits mog = new MadOtarGrits();
             ((Order)this.DataContext).Add(mog);
@@ -268,7 +284,7 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void OpenDragonbornWaffleFriesCustomization(object sender, RoutedEventArgs e)
         {
-            var dwfCustomization = new DragonbornWaffleFriesCustomization((Order)this.DataContext);
+            var dwfCustomization = new DragonbornWaffleFriesCustomization((Order)this.DataContext, false, null);
             fullMenuSelectionGrid.Children.Clear();
             DragonbornWaffleFries dwf = new DragonbornWaffleFries();
             ((Order)this.DataContext).Add(dwf);

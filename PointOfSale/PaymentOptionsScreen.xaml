@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="PointOfSale.PaymentOptionsScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1440">
+    <Border Name="fullComponentBorder" Grid.ColumnSpan="3" Grid.RowSpan="10" Background="DarkGray">
+        <!--Configure entire grid.-->
+        <Grid Name="fullMenuSelectionGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--Text for top of screen.-->
+            <TextBlock Grid.ColumnSpan="3" FontSize="60" FontWeight="Bold" HorizontalAlignment="Center">
+            Please choose method of payment
+            </TextBlock>
+            <!--Button to select cash payment.-->
+            <Border Grid.Column ="1" Grid.Row="1" BorderThickness="8">
+                <Button Click="SelectCash" Name="cashButton" FontSize="40">
+                    Cash
+                </Button>
+            </Border>
+            <!--Button to select credit/debit payment.-->
+            <Border Grid.Column ="1" Grid.Row="2" BorderThickness="8">
+                <Button Click="SelectCreditOrDebit" Name="creditOrDebitButton" FontSize="40">
+                    Credit/Debit
+                </Button>
+            </Border>
+            <!--Button to return to order.-->
+            <Border Grid.Column ="1" Grid.Row="3" BorderThickness="8">
+                <Button Click="ReturnToOrder" Name="returnButton" FontSize="40">
+                    Return to Order
+                </Button>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

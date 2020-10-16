@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
         Title="Bleakwind Buffet Point of Sale" Height="1080" Width="1920">
-    <Grid x:Name="OrderComponent">
+    <Grid x:Name="OrderComponent" local:PaymentOptionsScreen.NewOrder="NewOrderEvent" local:CashPaymentProcessing.NewOrder="NewOrderEvent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="1*"/>
@@ -49,17 +49,17 @@
             <!--Total cost section-->
             <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock FontWeight="Bold" FontSize="45">Total: $</TextBlock>
-                <TextBlock FontWeight="Bold"  FontSize="45" Text="{Binding Path=Total}" />
+                <TextBlock FontWeight="Bold"  FontSize="45" Text="{Binding Path=Total, StringFormat=N2}" />
             </StackPanel>
             <!--Tax cost section-->
             <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock FontSize="45">Tax: $</TextBlock>
-                <TextBlock FontSize="45" Text="{Binding Path=Tax}" />
+                <TextBlock FontSize="45" Text="{Binding Path=Tax, StringFormat=N2}" />
             </StackPanel>
             <!--Subtotal cost section-->
             <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock FontSize="45">Subtotal: $</TextBlock>
-                <TextBlock FontSize="45" Text="{Binding Path=Subtotal}" />
+                <TextBlock FontSize="45" Text="{Binding Path=Subtotal, StringFormat=N2}" />
             </StackPanel>
             
             <!--List of items on the order-->
@@ -82,7 +82,7 @@
                                 <!--Equals and Dollar symbols.-->
                                 <TextBlock Grid.Column="2" VerticalAlignment="Center" FontSize="20">=$</TextBlock>
                                 <!--Price of the item in the order.-->
-                                <TextBlock Grid.Column="3" VerticalAlignment="Center" FontSize="20" Text="{Binding Path=Price}"/>
+                                <TextBlock Grid.Column="3" VerticalAlignment="Center" FontSize="20" Text="{Binding Path=Price, StringFormat=N2}"/>
                                 <!--Name of the item in the order.-->
                                 <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="20" Text="{Binding Path=Name}"/>
                                 <!--Special Instructions for item in the order below other information.-->

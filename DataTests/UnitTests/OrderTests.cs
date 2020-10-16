@@ -124,5 +124,53 @@ namespace BleakwindBuffet.DataTests.UnitTests
             or.Remove(bb);
             Assert.Equal(or[0], aj);
         }
+
+        /// <summary>
+        /// Tests if subtotal of order works properly.
+        /// </summary>
+        [Fact]
+        public void SubtotalShouldBeCorrect()
+        {
+            Order or = new Order();
+            BriarheartBurger bb = new BriarheartBurger();
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            VokunSalad vs = new VokunSalad();
+            or.Add(bb);
+            or.Add(aj);
+            or.Add(vs);
+            Assert.Equal((bb.Price + aj.Price + vs.Price), or.Subtotal);
+        }
+
+        /// <summary>
+        /// Tests if tax of order works properly.
+        /// </summary>
+        [Fact]
+        public void TaxShouldBeCorrect()
+        {
+            Order or = new Order();
+            BriarheartBurger bb = new BriarheartBurger();
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            VokunSalad vs = new VokunSalad();
+            or.Add(bb);
+            or.Add(aj);
+            or.Add(vs);
+            Assert.Equal(Math.Round((bb.Price + aj.Price + vs.Price)*0.12, 2), or.Tax);
+        }
+
+        /// <summary>
+        /// Tests if total of order works properly.
+        /// </summary>
+        [Fact]
+        public void TotalShouldBeCorrect()
+        {
+            Order or = new Order();
+            BriarheartBurger bb = new BriarheartBurger();
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            VokunSalad vs = new VokunSalad();
+            or.Add(bb);
+            or.Add(aj);
+            or.Add(vs);
+            Assert.Equal(Math.Round((bb.Price + aj.Price + vs.Price)*1.12, 2), or.Total);
+        }
     }
 }

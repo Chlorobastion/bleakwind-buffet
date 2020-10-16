@@ -255,11 +255,11 @@ namespace BleakwindBuffet.DataTests.UnitTests
             tt.Ketchup = false;
             List<string> specialInstructions = new List<string>();
             specialInstructions.Add(tt.ToString());
-            specialInstructions.Add(tt.SpecialInstructions[0]);
-            specialInstructions.Add(tt.SpecialInstructions[1]);
+            specialInstructions.Add("-" + tt.SpecialInstructions[0]);
+            specialInstructions.Add("-" + tt.SpecialInstructions[1]);
             specialInstructions.Add(dwf.ToString());
             specialInstructions.Add(aj.ToString());
-            specialInstructions.Add(aj.SpecialInstructions[0]);
+            specialInstructions.Add("-" + aj.SpecialInstructions[0]);
             Assert.True(co.SpecialInstructions[0] == specialInstructions[0]);
             Assert.True(co.SpecialInstructions[1] == specialInstructions[1]);
             Assert.True(co.SpecialInstructions[2] == specialInstructions[2]);

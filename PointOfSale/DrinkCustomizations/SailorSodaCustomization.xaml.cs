@@ -32,13 +32,30 @@ namespace PointOfSale
         private Order currentOrder;
 
         /// <summary>
+        /// Private variable to hold onto if current object is part of a combo.
+        /// </summary>
+        private bool isCombo;
+
+        /// <summary>
+        /// Private variable to hold onto current combo information.
+        /// </summary>
+        private Combo currentCombo;
+
+        /// <summary>
         /// Initializes the sailor soda customization component in the main window.
         /// </summary>
         /// <param name="currOrder">The current order that must be maintained.</param>
-        public SailorSodaCustomization(Order currOrder)
+        /// <param name="combo">Whether or not the current object is part of a combo.</param>
+        /// <param name="currCombo">The combo this object is a part of.</param>
+        public SailorSodaCustomization(Order currOrder, bool combo, Combo currCombo)
         {
             InitializeComponent();
             currentOrder = currOrder;
+            if (combo)
+            {
+                isCombo = combo;
+                currentCombo = currCombo;
+            }
         }
 
         /// <summary>
@@ -48,12 +65,21 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void NextItemOrder(object sender, RoutedEventArgs e)
         {
-
-            var menu = new MenuSelectionComponent();
-            menu.DataContext = currentOrder;
-            fullCustomizationGrid.Children.Clear();
-            fullComponentBorder.Child = menu;
-        }
+            if (!isCombo)
+            {
+                var menu = new MenuSelectionComponent();
+                menu.DataContext = currentOrder;
+                fullCustomizationGrid.Children.Clear();
+                fullComponentBorder.Child = menu;
+            }
+            else
+            {
+                var coCustomization = new ComboCustomization(currentOrder);
+                coCustomization.DataContext = currentCombo;
+                fullCustomizationGrid.Children.Clear();
+                fullComponentBorder.Child = coCustomization;
+            }
+}
 
         /// <summary>
         /// Selects the size of the item to be small.

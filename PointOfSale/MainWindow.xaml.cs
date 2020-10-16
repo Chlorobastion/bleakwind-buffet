@@ -37,8 +37,26 @@ namespace PointOfSale
         {
             InitializeComponent();
             Order or = new Order();
-            this.DataContext = or;
+            DataContext = or;
             menuSelectionComponent.DataContext = or;
+        }
+
+        /// <summary>
+        /// Handles event for when a new order needs to be created (finishing the old order)
+        /// </summary>
+        /// <param name="sender">Reference to the object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
+        void NewOrderEvent(object sender, RoutedEventArgs e)
+        {
+            if (e.Source is PaymentOptionsScreen || e.Source is CashPaymentProcessing)
+            {
+                Order or = new Order();
+                DataContext = or;
+                MenuSelectionComponent msc = new MenuSelectionComponent();
+                mscBorder.Child = msc;
+                msc.DataContext = or;
+                e.Handled = true;
+            }
         }
 
         /// <summary>
@@ -49,7 +67,7 @@ namespace PointOfSale
         void CancelOrder(object sender, RoutedEventArgs e)
         {
             Order or = new Order();
-            this.DataContext = or;
+            DataContext = or;
             MenuSelectionComponent msc = new MenuSelectionComponent();
             mscBorder.Child = msc;
             msc.DataContext = or;
@@ -62,12 +80,8 @@ namespace PointOfSale
         /// <param name="e">Contains the event data.</param>
         void FinishOrder(object sender, RoutedEventArgs e)
         {
-
-            Order or = new Order();
-            this.DataContext = or;
-            MenuSelectionComponent msc = new MenuSelectionComponent();
-            mscBorder.Child = msc;
-            msc.DataContext = or;
+            PaymentOptionsScreen pos = new PaymentOptionsScreen((Order) DataContext);
+            mscBorder.Child = pos;
         }
 
 
@@ -229,101 +243,103 @@ namespace PointOfSale
             var item = orderList.SelectedItem;
             if (item is Combo co)
             {
-                // handle later
+                ComboCustomization coc = new ComboCustomization((Order)this.DataContext);
+                coc.DataContext = co;
+                mscBorder.Child = coc;
             }
             else if (item is AretinoAppleJuice aj)
             {
-                AretinoAppleJuiceCustomization ajc = new AretinoAppleJuiceCustomization(((Order)this.DataContext));
+                AretinoAppleJuiceCustomization ajc = new AretinoAppleJuiceCustomization(((Order)this.DataContext), false, null);
                 ajc.DataContext = aj;
                 mscBorder.Child = ajc;
             }
             else if (item is CandlehearthCoffee cc)
             {
-                CandlehearthCoffeeCustomization ccc = new CandlehearthCoffeeCustomization(((Order)this.DataContext));
+                CandlehearthCoffeeCustomization ccc = new CandlehearthCoffeeCustomization(((Order)this.DataContext), false, null);
                 ccc.DataContext = cc;
                 mscBorder.Child = ccc;
             }
             else if (item is MarkarthMilk mm)
             {
-                MarkarthMilkCustomization mmc = new MarkarthMilkCustomization(((Order)this.DataContext));
+                MarkarthMilkCustomization mmc = new MarkarthMilkCustomization(((Order)this.DataContext), false, null);
                 mmc.DataContext = mm;
                 mscBorder.Child = mmc;
             }
             else if (item is SailorSoda ss)
             {
-                SailorSodaCustomization ssc = new SailorSodaCustomization(((Order)this.DataContext));
+                SailorSodaCustomization ssc = new SailorSodaCustomization(((Order)this.DataContext), false, null);
                 ssc.DataContext = ss;
                 mscBorder.Child = ssc;
             }
             else if (item is WarriorWater ww)
             {
-                WarriorWaterCustomization wwc = new WarriorWaterCustomization(((Order)this.DataContext));
+                WarriorWaterCustomization wwc = new WarriorWaterCustomization(((Order)this.DataContext), false, null);
                 wwc.DataContext = ww;
                 mscBorder.Child = wwc;
             }
             else if (item is BriarheartBurger bb)
             {
-                BriarheartBurgerCustomization bbc = new BriarheartBurgerCustomization(((Order)this.DataContext));
+                BriarheartBurgerCustomization bbc = new BriarheartBurgerCustomization(((Order)this.DataContext), false, null);
                 bbc.DataContext = bb;
                 mscBorder.Child = bbc;
             }
             else if (item is DoubleDraugr dd)
             {
-                DoubleDraugrCustomization ddc = new DoubleDraugrCustomization(((Order)this.DataContext));
+                DoubleDraugrCustomization ddc = new DoubleDraugrCustomization(((Order)this.DataContext), false, null);
                 ddc.DataContext = dd;
                 mscBorder.Child = ddc;
             }
             else if (item is GardenOrcOmelette goo)
             {
-                GardenOrcOmeletteCustomization gooc = new GardenOrcOmeletteCustomization(((Order)this.DataContext));
+                GardenOrcOmeletteCustomization gooc = new GardenOrcOmeletteCustomization(((Order)this.DataContext), false, null);
                 gooc.DataContext = goo;
                 mscBorder.Child = gooc;
             }
             else if (item is PhillyPoacher pp)
             {
-                PhillyPoacherCustomization ppc = new PhillyPoacherCustomization(((Order)this.DataContext));
+                PhillyPoacherCustomization ppc = new PhillyPoacherCustomization(((Order)this.DataContext), false, null);
                 ppc.DataContext = pp;
                 mscBorder.Child = ppc;
             }
             else if (item is SmokehouseSkeleton sms)
             {
-                SmokehouseSkeletonCustomization smsc = new SmokehouseSkeletonCustomization(((Order)this.DataContext));
+                SmokehouseSkeletonCustomization smsc = new SmokehouseSkeletonCustomization(((Order)this.DataContext), false, null);
                 smsc.DataContext = sms;
                 mscBorder.Child = smsc;
             }
             else if (item is ThalmorTriple tt)
             {
-                ThalmorTripleCustomization ttc = new ThalmorTripleCustomization(((Order)this.DataContext));
+                ThalmorTripleCustomization ttc = new ThalmorTripleCustomization(((Order)this.DataContext), false, null);
                 ttc.DataContext = tt;
                 mscBorder.Child = ttc;
             }
             else if (item is ThugsTBone ttb)
             {
-                ThugsTBoneCustomization ttbc = new ThugsTBoneCustomization(((Order)this.DataContext));
+                ThugsTBoneCustomization ttbc = new ThugsTBoneCustomization(((Order)this.DataContext), false, null);
                 ttbc.DataContext = ttb;
                 mscBorder.Child = ttbc;
             }
             else if (item is DragonbornWaffleFries dwf)
             {
-                DragonbornWaffleFriesCustomization dwfc = new DragonbornWaffleFriesCustomization(((Order)this.DataContext));
+                DragonbornWaffleFriesCustomization dwfc = new DragonbornWaffleFriesCustomization(((Order)this.DataContext), false, null);
                 dwfc.DataContext = dwf;
                 mscBorder.Child = dwfc;
             }
             else if (item is FriedMiraak fm)
             {
-                FriedMiraakCustomization fmc = new FriedMiraakCustomization(((Order)this.DataContext));
+                FriedMiraakCustomization fmc = new FriedMiraakCustomization(((Order)this.DataContext), false, null);
                 fmc.DataContext = fm;
                 mscBorder.Child = fmc;
             }
             else if (item is MadOtarGrits mog)
             {
-                MadOtarGritsCustomization mogc = new MadOtarGritsCustomization(((Order)this.DataContext));
+                MadOtarGritsCustomization mogc = new MadOtarGritsCustomization(((Order)this.DataContext), false, null);
                 mogc.DataContext = mog;
                 mscBorder.Child = mogc;
             }
             else if (item is VokunSalad vs)
             {
-                VokunSaladCustomization vsc = new VokunSaladCustomization(((Order)this.DataContext));
+                VokunSaladCustomization vsc = new VokunSaladCustomization(((Order)this.DataContext), false, null);
                 vsc.DataContext = vs;
                 mscBorder.Child = vsc;
             }
