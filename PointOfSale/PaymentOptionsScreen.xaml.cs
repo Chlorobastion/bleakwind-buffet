@@ -87,15 +87,19 @@ namespace PointOfSale
                     break;
                 case CardTransactionResult.Declined:
                     //handle card declined
+                    MessageBox.Show("Card Declined.");
                     break;
                 case CardTransactionResult.ReadError:
                     //handle card read error
+                    MessageBox.Show("Read Error.");
                     break;
                 case CardTransactionResult.InsufficientFunds:
                     //handle card insufficient funds
+                    MessageBox.Show("Insufficient Funds.");
                     break;
                 case CardTransactionResult.IncorrectPin:
                     //handle card incorrect pin
+                    MessageBox.Show("Incorrect PIN.");
                     break;
             }    
         }
