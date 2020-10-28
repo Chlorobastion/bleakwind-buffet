@@ -1,0 +1,79 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!--Header for page.-->
+<div class="text-center">
+    <h1 class="display-4">Welcome to Bleakwind Buffet</h1>
+    <p>
+        <i>
+            We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+            Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas.
+            Hack into a Smokehouse Skeleton with your dagger. Or vanquish the might Thalmor Triple Burger!
+            You've had a hard adventure and earned your loot, so spend it with us!
+        </i>
+    </p>
+</div>
+
+<!--Combo details.-->
+<div>
+    <h2>Combo</h2>
+    <p>Any entree, side, and drink can be combined into a Combo with a $1 discount.</p>
+</div>
+
+<!--Entree section.-->
+<div>
+    <h2>Entrees</h2>
+    <ul>
+        @foreach (BleakwindBuffet.Data.IOrderItem entree in BleakwindBuffet.Data.Menu.Entrees())
+		{
+            <div class="menu-item">
+                <!--Name of IOrderItem.-->
+                <li class="menu-item-name">@entree.ToString()</li>
+                <!--Price of IOrderItem.-->
+                <li class="menu-item-price">@("Price = $" + entree.Price)</li>
+                <!--Calories of IOrderItem.-->
+                <li class="menu-item-calories">@(entree.Calories + " Calories")</li>
+            </div>
+        }
+    </ul>
+</div>
+
+<!--Side section.-->
+<div>
+	<h2>Sides</h2>
+	<ul>
+		@foreach (BleakwindBuffet.Data.IOrderItem side in BleakwindBuffet.Data.Menu.Sides())
+		{
+			<div class="menu-item">
+				<!--Name of IOrderItem.-->
+				<li class="menu-item-name">@side.ToString()</li>
+				<!--Price of IOrderItem.-->
+				<li class="menu-item-price">@("Price = $" + side.Price)</li>
+				<!--Calories of IOrderItem.-->
+				<li class="menu-item-calories">@(side.Calories + " Calories")</li>
+			</div>
+		}
+	</ul>
+</div>
+
+<!--Drink section.-->
+<div>
+	<h2>Drinks</h2>
+	<p>Note: Sailor Soda flavors include Blackberry, Cherry, Grapefruit, Lemon, Peach, and Watermelon. (Flavor does not affect price)</p>
+	<ul>
+		@foreach (BleakwindBuffet.Data.IOrderItem drink in BleakwindBuffet.Data.Menu.Drinks())
+		{
+			<div class="menu-item">
+				<!--Name of IOrderItem.-->
+				<li class="menu-item-name">@drink.ToString()</li>
+				<!--Price of IOrderItem.-->
+				<li class="menu-item-price">@("Price = $" + drink.Price)</li>
+				<!--Calories of IOrderItem.-->
+				<li class="menu-item-calories">@(drink.Calories + " Calories")</li>
+			</div>
+		}
+	</ul>
+</div>
