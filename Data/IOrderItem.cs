@@ -15,6 +15,12 @@ namespace BleakwindBuffet.Data
     public interface IOrderItem
     {
         /// <summary>
+        /// A getter for the name of the item.
+        /// </summary>
+        /// <returns>The name of the item. </returns>
+        string Name { get; }
+
+        /// <summary>
         /// A getter for the price of the item.
         /// </summary>
         /// <returns>The price of the item. (Double)</returns>

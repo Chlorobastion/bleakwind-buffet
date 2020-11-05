@@ -24,7 +24,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Getter for name of item.
         /// </summary>
-        public string Name
+        public override string Name
         {
             get
             {

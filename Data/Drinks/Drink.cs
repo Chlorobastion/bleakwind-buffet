@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     public abstract class Drink : IOrderItem
     {
         /// <summary>
+        /// A getter for the name of the drink. (String)
+        /// </summary>
+        public abstract string Name { get; }
+
+        /// <summary>
         /// A getter/setter for the size of the drink. (Size)
         /// </summary>
         /// <value>Small, Medium, or Large.</value>
