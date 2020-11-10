@@ -296,5 +296,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(bb, "SpecialInstructions", () => bb.Cheese = false);
             Assert.PropertyChanged(bb, "SpecialInstructions", () => bb.Cheese = true);
         }
+
+        /// <summary>
+        /// Tests if entree description works as expected.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            string expected = "Single patty burger on a brioche bun. Comes with ketchup, mustard, pickle, and cheese.";
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.Equal(expected, bb.Description);
+        }
     }
 }

@@ -166,5 +166,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.PropertyChanged(dbwf, "Calories", () => dbwf.Size = Size.Medium);
             Assert.PropertyChanged(dbwf, "Calories", () => dbwf.Size = Size.Large);
         }
+
+        /// <summary>
+        /// Tests if side description works as expected.
+        /// </summary>
+        /// <param name="size">The size of the drink (Small, Medium, or Large).</param>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescription(Size size)
+        {
+            string expected = "Crispy fried potato waffle fries.";
+            DragonbornWaffleFries dbwf = new DragonbornWaffleFries();
+            dbwf.Size = size;
+            Assert.Equal(expected, dbwf.Description);
+        }
     }
 }

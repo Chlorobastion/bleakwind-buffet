@@ -258,5 +258,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(goo, "SpecialInstructions", () => goo.Cheddar = false);
             Assert.PropertyChanged(goo, "SpecialInstructions", () => goo.Cheddar = true);
         }
+
+        /// <summary>
+        /// Tests if entree description works as expected.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            string expected = "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.Equal(expected, goo.Description);
+        }
     }
 }

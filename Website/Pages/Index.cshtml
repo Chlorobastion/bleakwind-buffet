@@ -17,104 +17,116 @@
     </p>
 </div>
 
-<form id="bleakwind-buffet-menu">
-    <div id="search">
+<form class="bleakwind-buffet-menu">
+    <div class="search">
         <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
         <input type="submit" value="Search" />
     </div>
 
-    <div id="filters">
-        <h4>Categories</h4>
-        <label>
-            <input type="checkbox" name="Categories" value="Entree" checked="@Model.Categories.Contains("Entree")" />
-            Entree
-        </label>
-        <label>
-            <input type="checkbox" name="Categories" value="Side" checked="@Model.Categories.Contains("Side")" />
-            Side
-        </label>
-        <label>
-            <input type="checkbox" name="Categories" value="Drink" checked="@Model.Categories.Contains("Drink")" />
-            Drink
-        </label>
-
-        <h4>Desired Calories</h4>
-        <div>
-            Between
-            <input name="caloriesMin" type="number" min="0" max="10000" step="1" placeholder="min" value="@Model.CaloriesMin" />
-            and
-            <input name="caloriesMax" type="number" min="0" max="10000" step="1" placeholder="max" value="@Model.CaloriesMax" />
+    <div class="filters">
+        <div class="categories">
+            <h4>Categories</h4>
+            <label>
+                <input type="checkbox" name="Categories" value="Entree" checked="@Model.Categories.Contains("Entree")" />
+                Entree
+            </label>
+            <label>
+                <input type="checkbox" name="Categories" value="Side" checked="@Model.Categories.Contains("Side")" />
+                Side
+            </label>
+            <label>
+                <input type="checkbox" name="Categories" value="Drink" checked="@Model.Categories.Contains("Drink")" />
+                Drink
+            </label>
         </div>
 
-        <h4>Desired Price</h4>
-        <div>
-            Between
-            <input name="priceMin" type="number" min="0" max="20.00" step="0.01" placeholder="min" value="@Model.PriceMin" />
-            and
-            <input name="priceMax" type="number" min="0" max="20.00" step="0.01" placeholder="max" value="@Model.PriceMax" />
+        <div class="calories">
+            <h4>Desired Calories</h4>
+            <div>
+                Between
+                <input name="caloriesMin" type="number" min="0" max="10000" step="1" placeholder="min" value="@Model.CaloriesMin" />
+                and
+                <input name="caloriesMax" type="number" min="0" max="10000" step="1" placeholder="max" value="@Model.CaloriesMax" />
+            </div>
+        </div>
+
+        <div class="price">
+            <h4>Desired Price</h4>
+            <div>
+                Between
+                <input name="priceMin" type="number" min="0" max="20.00" step="0.01" placeholder="min" value="@Model.PriceMin" />
+                and
+                <input name="priceMax" type="number" min="0" max="20.00" step="0.01" placeholder="max" value="@Model.PriceMax" />
+            </div>
         </div>
     </div>
 
 
 
-    <div id="resulting-items">
+    <div class="flex-columns" id="resulting-items">
         <!--Combo details.-->
-        <div>
+        <div class="combo-column">
             <h2>Combo</h2>
             <p>Any entree, side, and drink can be combined into a Combo with a $1 discount.</p>
         </div>
 
         <!--Entree section.-->
-        <div>
+        <div class="entree-column">
             <h2>Entrees</h2>
             <ul>
                 @foreach (BleakwindBuffet.Data.IOrderItem entree in Model.Entrees)
                 {
-                    <div class="menu-item">
-                        <!--Name of IOrderItem.-->
-                        <li class="menu-item-name">@entree.ToString()</li>
-                        <!--Price of IOrderItem.-->
-                        <li class="menu-item-price">@("Price = $" + entree.Price)</li>
-                        <!--Calories of IOrderItem.-->
-                        <li class="menu-item-calories">@(entree.Calories + " Calories")</li>
-                    </div>
+                <div class="menu-item">
+                    <!--Name of IOrderItem.-->
+                    <li class="menu-item-name">@entree.ToString()</li>
+                    <!--Price of IOrderItem.-->
+                    <li class="menu-item-price">@("Price = $" + entree.Price)</li>
+                    <!--Calories of IOrderItem.-->
+                    <li class="menu-item-calories">@(entree.Calories + " Calories")</li>
+                    <!--Description of IOrderItem-->
+                    <li class="menu-item-description">@("Description: " + entree.Description)</li>
+                </div>
                 }
             </ul>
         </div>
 
         <!--Side section.-->
-        <div>
+        <div class="side-column">
             <h2>Sides</h2>
             <ul>
                 @foreach (BleakwindBuffet.Data.IOrderItem side in Model.Sides)
                 {
-                    <div class="menu-item">
-                        <!--Name of IOrderItem.-->
-                        <li class="menu-item-name">@side.ToString()</li>
-                        <!--Price of IOrderItem.-->
-                        <li class="menu-item-price">@("Price = $" + side.Price)</li>
-                        <!--Calories of IOrderItem.-->
-                        <li class="menu-item-calories">@(side.Calories + " Calories")</li>
-                    </div>
+                <div class="menu-item">
+                    <!--Name of IOrderItem.-->
+                    <li class="menu-item-name">@side.ToString()</li>
+                    <!--Price of IOrderItem.-->
+                    <li class="menu-item-price">@("Price = $" + side.Price)</li>
+                    <!--Calories of IOrderItem.-->
+                    <li class="menu-item-calories">@(side.Calories + " Calories")</li>
+                    <!--Description of IOrderItem-->
+                    <li class="menu-item-description">@("Description: " + side.Description)</li>
+                </div>
                 }
             </ul>
         </div>
 
         <!--Drink section.-->
-        <div>
+        <div class="drink-column">
             <h2>Drinks</h2>
             <p>Note: Sailor Soda flavors include Blackberry, Cherry, Grapefruit, Lemon, Peach, and Watermelon. (Flavor does not affect price)</p>
             <ul>
                 @foreach (BleakwindBuffet.Data.IOrderItem drink in Model.Drinks)
                 {
-                    <div class="menu-item">
-                        <!--Name of IOrderItem.-->
-                        <li class="menu-item-name">@drink.ToString()</li>
-                        <!--Price of IOrderItem.-->
-                        <li class="menu-item-price">@("Price = $" + drink.Price)</li>
-                        <!--Calories of IOrderItem.-->
-                        <li class="menu-item-calories">@(drink.Calories + " Calories")</li>
-                    </div>
+                <div class="menu-item">
+                    <!--Name of IOrderItem.-->
+                    <li class="menu-item-name">@drink.ToString()</li>
+                    <!--Price of IOrderItem.-->
+                    <li class="menu-item-price">@("Price = $" + drink.Price)</li>
+                    <!--Calories of IOrderItem.-->
+                    <li class="menu-item-calories">@(drink.Calories + " Calories")</li>
+                    <!--Description of IOrderItem-->
+                    <li class="menu-item-description">@("Description: " + drink.Description)</li>
+                </div>
                 }
             </ul>
         </div>

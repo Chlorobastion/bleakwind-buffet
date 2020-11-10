@@ -15,9 +15,14 @@ namespace BleakwindBuffet.Data.Entrees
     public abstract class Entree : IOrderItem
     {
         /// <summary>
-        /// A getter for the name of the drink. (String)
+        /// A getter for the name of the entree. (String)
         /// </summary>
         public abstract string Name { get; }
+
+        /// <summary>
+        /// A getter for the description of the entree.
+        /// </summary>
+        public abstract string Description { get; }
 
         /// <summary>
         /// A getter for the price of the entree. (Double)

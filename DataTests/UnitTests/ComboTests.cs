@@ -267,5 +267,16 @@ namespace BleakwindBuffet.DataTests.UnitTests
             Assert.True(co.SpecialInstructions[4] == specialInstructions[4]);
             Assert.True(co.SpecialInstructions[5] == specialInstructions[5]);
         }
+
+        /// <summary>
+        /// Tests if entree description works as expected.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            string expected = "Any entree, side, and drink can be combined into a Combo with a $1 discount.";
+            Combo co = new Combo();
+            Assert.Equal(expected, co.Description);
+        }
     }
 }

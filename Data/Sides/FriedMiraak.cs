@@ -32,6 +32,17 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
+        /// <summary>
+        /// Getter for the description of the item.
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Perfectly prepared hash brown pancakes.";
+            }
+        }
+
         /// <value>
         /// Which size side is desired (default small).
         /// </value>

@@ -26,6 +26,17 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         /// <summary>
+        /// Getter for the description of the item.
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Juicy T-Bone, not much else to say.";
+            }
+        }
+
+        /// <summary>
         /// Event triggered when a property changes
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;

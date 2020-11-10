@@ -217,5 +217,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(mm, "SpecialInstructions", () => mm.Ice = false);
             Assert.PropertyChanged(mm, "SpecialInstructions", () => mm.Ice = true);
         }
+
+        /// <summary>
+        /// Tests if drink description works as expected.
+        /// </summary>
+        /// <param name="size">The size of the drink (Small, Medium, or Large).</param>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescription(Size size)
+        {
+            string expected = "Hormone-free organic 2% milk.";
+            MarkarthMilk mm = new MarkarthMilk();
+            mm.Size = size;
+            Assert.Equal(expected, mm.Description);
+        }
     }
 }

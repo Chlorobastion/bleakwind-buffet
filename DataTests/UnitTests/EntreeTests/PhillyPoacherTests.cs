@@ -218,5 +218,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(pp, "SpecialInstructions", () => pp.Roll = false);
             Assert.PropertyChanged(pp, "SpecialInstructions", () => pp.Roll = true);
         }
+
+        /// <summary>
+        /// Tests if entree description works as expected.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            string expected = "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.Equal(expected, pp.Description);
+        }
     }
 }

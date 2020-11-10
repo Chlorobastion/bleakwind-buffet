@@ -257,5 +257,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Pancake = false);
             Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Pancake = true);
         }
+
+        /// <summary>
+        /// Tests if entree description works as expected.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            string expected = "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.Equal(expected, ss.Description);
+        }
     }
 }

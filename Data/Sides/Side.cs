@@ -14,9 +14,14 @@ namespace BleakwindBuffet.Data.Sides
     public abstract class Side : IOrderItem
     {
         /// <summary>
-        /// A getter for the name of the drink. (String)
+        /// A getter for the name of the side. (String)
         /// </summary>
         public abstract string Name { get; }
+
+        /// <summary>
+        /// A getter for the description of the side.
+        /// </summary>
+        public abstract string Description { get; }
 
         /// <summary>
         /// A getter/setter for the size of the side. (Size)

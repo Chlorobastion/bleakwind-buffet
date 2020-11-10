@@ -21,6 +21,11 @@ namespace BleakwindBuffet.Data.Drinks
         public abstract string Name { get; }
 
         /// <summary>
+        /// A getter for the description of the drink.
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
         /// A getter/setter for the size of the drink. (Size)
         /// </summary>
         /// <value>Small, Medium, or Large.</value>

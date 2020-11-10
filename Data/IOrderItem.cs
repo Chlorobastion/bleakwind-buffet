@@ -21,6 +21,11 @@ namespace BleakwindBuffet.Data
         string Name { get; }
 
         /// <summary>
+        /// A getter for the description of the item.
+        /// </summary>
+        string Description { get; }
+
+        /// <summary>
         /// A getter for the price of the item.
         /// </summary>
         /// <returns>The price of the item. (Double)</returns>

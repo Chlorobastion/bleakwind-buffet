@@ -78,11 +78,53 @@ body {
 }
 
 /* Style for each menu item name. */
-.menu-item-name {
-    color: black;
+.bleakwind-buffet-menu .menu-item-name {
     font-size: 1.2rem;
 }
 
-.menu-item-price, .menu-item-calories {
+.bleakwind-buffet-menu .search {
+    padding-bottom: 5px;
+}
+
+.bleakwind-buffet-menu .filters {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+}
+
+.bleakwind-buffet-menu .filters > div{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.bleakwind-buffet-menu .flex-columns > div {
+    float: left;
+    width: 25%;
+}
+
+.bleakwind-buffet-menu .menu-item-price, .menu-item-calories {
     color: darkslategray;
+}
+
+.bleakwind-buffet-menu .menu-item-description{
+    color: darkgoldenrod;
+}
+
+.bleakwind-buffet-menu .flex-columns {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 490px) {
+    .bleakwind-buffet-menu .filters{
+        flex-direction: column;
+    }
+
+    .bleakwind-buffet-menu .flex-columns {
+        flex-direction: column;
+    }
+
+    .bleakwind-buffet-menu .flex-columns > div {
+        width: 100%;
+    }
 }

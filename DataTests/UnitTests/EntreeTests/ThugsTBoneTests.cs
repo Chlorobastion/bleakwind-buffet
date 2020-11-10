@@ -88,5 +88,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             ThugsTBone ttb = new ThugsTBone();
             Assert.IsAssignableFrom<INotifyPropertyChanged>(ttb);
         }
+
+        /// <summary>
+        /// Tests if entree description works as expected.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            string expected = "Juicy T-Bone, not much else to say.";
+            ThugsTBone ttb = new ThugsTBone();
+            Assert.Equal(expected, ttb.Description);
+        }
     }
 }

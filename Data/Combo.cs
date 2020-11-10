@@ -34,6 +34,18 @@ namespace BleakwindBuffet.Data
                 return "Combo Meal";
             }
         }
+
+        /// <summary>
+        /// Getter for the description of the item.
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Any entree, side, and drink can be combined into a Combo with a $1 discount.";
+            }
+        }
+
         /// <summary>
         /// Private backing variable for the entree in this combo.
         /// </summary>

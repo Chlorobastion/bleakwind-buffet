@@ -297,5 +297,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(cc, "SpecialInstructions", () => cc.RoomForCream = false);
             Assert.PropertyChanged(cc, "SpecialInstructions", () => cc.RoomForCream = true);
         }
+
+        /// <summary>
+        /// Tests if drink description works as expected.
+        /// </summary>
+        /// <param name="size">The size of the drink (Small, Medium, or Large).</param>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescription(Size size)
+        {
+            string expected = "Fair trade, fresh ground dark roast coffee.";
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            cc.Size = size;
+            Assert.Equal(expected, cc.Description);
+        }
     }
 }

@@ -287,5 +287,37 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Ice = false);
             Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Ice = true);
         }
+
+        /// <summary>
+        /// Tests if drink description works as expected.
+        /// </summary>
+        /// <param name="size">The size of the drink (Small, Medium, or Large).</param>
+        [Theory]
+        [InlineData(Size.Small, SodaFlavor.Cherry)]
+        [InlineData(Size.Small, SodaFlavor.Blackberry)]
+        [InlineData(Size.Small, SodaFlavor.Grapefruit)]
+        [InlineData(Size.Small, SodaFlavor.Lemon)]
+        [InlineData(Size.Small, SodaFlavor.Peach)]
+        [InlineData(Size.Small, SodaFlavor.Watermelon)]
+        [InlineData(Size.Medium, SodaFlavor.Cherry)]
+        [InlineData(Size.Medium, SodaFlavor.Blackberry)]
+        [InlineData(Size.Medium, SodaFlavor.Grapefruit)]
+        [InlineData(Size.Medium, SodaFlavor.Lemon)]
+        [InlineData(Size.Medium, SodaFlavor.Peach)]
+        [InlineData(Size.Medium, SodaFlavor.Watermelon)]
+        [InlineData(Size.Large, SodaFlavor.Cherry)]
+        [InlineData(Size.Large, SodaFlavor.Blackberry)]
+        [InlineData(Size.Large, SodaFlavor.Grapefruit)]
+        [InlineData(Size.Large, SodaFlavor.Lemon)]
+        [InlineData(Size.Large, SodaFlavor.Peach)]
+        [InlineData(Size.Large, SodaFlavor.Watermelon)]
+        public void ShouldHaveCorrectDescription(Size size, SodaFlavor flavor)
+        {
+            string expected = "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.";
+            SailorSoda ss = new SailorSoda();
+            ss.Size = size;
+            ss.Flavor = flavor;
+            Assert.Equal(expected, ss.Description);
+        }
     }
 }

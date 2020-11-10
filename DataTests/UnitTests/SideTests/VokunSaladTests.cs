@@ -166,5 +166,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.PropertyChanged(vs, "Calories", () => vs.Size = Size.Medium);
             Assert.PropertyChanged(vs, "Calories", () => vs.Size = Size.Large);
         }
+
+        /// <summary>
+        /// Tests if side description works as expected.
+        /// </summary>
+        /// <param name="size">The size of the drink (Small, Medium, or Large).</param>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescription(Size size)
+        {
+            string expected = "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.";
+            VokunSalad vs = new VokunSalad();
+            vs.Size = size;
+            Assert.Equal(expected, vs.Description);
+        }
     }
 }

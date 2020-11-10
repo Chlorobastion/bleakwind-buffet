@@ -415,5 +415,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Mayo = false);
             Assert.PropertyChanged(dd, "SpecialInstructions", () => dd.Mayo = true);
         }
+
+        /// <summary>
+        /// Tests if entree description works as expected.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            string expected = "Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.";
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.Equal(expected, dd.Description);
+        }
     }
 }

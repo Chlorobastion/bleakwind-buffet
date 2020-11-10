@@ -494,5 +494,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Egg = false);
             Assert.PropertyChanged(tt, "SpecialInstructions", () => tt.Egg = true);
         }
+
+        /// <summary>
+        /// Tests if entree description works as expected.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            string expected = "Think you are strong enough to take on the Thalmor? Includes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.";
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.Equal(expected, tt.Description);
+        }
     }
 }

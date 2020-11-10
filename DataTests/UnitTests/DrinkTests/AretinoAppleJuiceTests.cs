@@ -216,5 +216,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(aj, "SpecialInstructions", () => aj.Ice = false);
             Assert.PropertyChanged(aj, "SpecialInstructions", () => aj.Ice = true);
         }
+
+        /// <summary>
+        /// Tests if drink description works as expected.
+        /// </summary>
+        /// <param name="size">The size of the drink (Small, Medium, or Large).</param>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescription(Size size)
+        {
+            string expected = "Fresh squeezed apple juice.";
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            aj.Size = size;
+            Assert.Equal(expected, aj.Description);
+        }
     }
 }

@@ -232,5 +232,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(ww, "SpecialInstructions", () => ww.Lemon = false);
             Assert.PropertyChanged(ww, "SpecialInstructions", () => ww.Lemon = true);
         }
+
+        /// <summary>
+        /// Tests if drink description works as expected.
+        /// </summary>
+        /// <param name="size">The size of the drink (Small, Medium, or Large).</param>
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescription(Size size)
+        {
+            string expected = "It’s water. Just water.";
+            WarriorWater ww = new WarriorWater();
+            ww.Size = size;
+            Assert.Equal(expected, ww.Description);
+        }
     }
 }
